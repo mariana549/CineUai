@@ -17,7 +17,10 @@ function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
   const [searchValue, setSearchValue] = useState('harry potter');
   const [erroMinLength, setErrorMinLength] = useState('');
-  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
+  const [favorites, setFavorites] = useState<Record<string, boolean>>(() => {
+    const savedFavorites = localStorage.getItem('favorites');
+    return savedFavorites ? JSON.parse(savedFavorites) : {};
+  });
 
   useEffect(() => {
     async function getData() {
@@ -35,18 +38,29 @@ function App() {
     getData();
   }, [searchValue]);
 
+  useEffect(() => {
+    // Salve os favoritos no localStorage sempre que mudar
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
   const toggleFavorite = (title: string) => {
-    setFavorites((prevFavorites) => ({
-      ...prevFavorites,
-      [title]: !prevFavorites[title],
-    }));
+    setFavorites((prevFavorites) => {
+      const updatedFavorites = { ...prevFavorites, [title]: !prevFavorites[title] };
+      
+      // Remove the item if it's not a favorite anymore
+      if (!updatedFavorites[title]) {
+        delete updatedFavorites[title];
+      }
+
+      return updatedFavorites;
+    });
   };
 
-  const filteredFavorites = dados?.Search?.filter((item) => favorites[item.Title]);
+  const favoritesFromStorage = Object.keys(favorites).filter((value) => favorites[value]);
 
   return (
     <div>
@@ -62,14 +76,14 @@ function App() {
         onChange={handleSearch}
       />
       <span>{searchValue.length <= 2 ? erroMinLength : ""}</span>
-
+      
       <h2>Favoritos</h2>
       <ul>
-        {filteredFavorites && (
-          <Cards
-            dados={filteredFavorites}
-            onFavoriteToggle={toggleFavorite}
-            favorites={favorites}
+        {dados && (
+          <Cards 
+            dados={dados.Search.filter(item => favoritesFromStorage.includes(item.Title))} 
+            onFavoriteToggle={toggleFavorite} 
+            favorites={favorites} 
           />
         )}
       </ul>
@@ -77,10 +91,10 @@ function App() {
       <h2>Todos os Resultados</h2>
       <ul>
         {dados && (
-          <Cards
-            dados={dados.Search}
-            onFavoriteToggle={toggleFavorite}
-            favorites={favorites}
+          <Cards 
+            dados={dados.Search} 
+            onFavoriteToggle={toggleFavorite} 
+            favorites={favorites} 
           />
         )}
       </ul>
