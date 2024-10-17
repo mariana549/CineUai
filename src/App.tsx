@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
-import { getApi_Search } from './services/requestApi'
-import favorited from "../public/icons/favorited.png";
-import notfavorited from "../public/icons/notFavorited.png";
+import { useEffect, useState } from 'react';
+import { getApi_Search } from './services/requestApi';
+import { Cards } from './components/cards';
 
+interface ApiData {
+  Search: SearchResult[];
+}
 
 interface SearchResult {
   Poster: string;
@@ -11,20 +13,11 @@ interface SearchResult {
   Type: string;
 }
 
-interface ApiData {
-  Search: SearchResult[];
-}
-
-const imgFavorite = {
-  notFavorited: notfavorited,
-  favorited: favorited,
-}
-
 function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
   const [searchValue, setSearchValue] = useState('harry potter');
   const [erroMinLength, setErrorMinLength] = useState('');
-  const [favorites, setFavorites] = useState(imgFavorite.notFavorited)
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     async function getData() {
@@ -32,13 +25,11 @@ function App() {
         try {
           const data = await getApi_Search(searchValue);
           setDados(data);
-
-          // console.log(data)
         } catch (error) {
-          console.log(`Não foi possivel completar a requisição, ERROR ${error}`)
+          console.log(`Não foi possivel completar a requisição, ERROR ${error}`);
         }
       } else {
-        setErrorMinLength("Digite no minimo 3 caracteres")
+        setErrorMinLength("Digite no minimo 3 caracteres");
       }
     }
     getData();
@@ -48,16 +39,14 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  function toogleFavorite(title: string) {
-    // if(favorite){
-    //   favorite === imgFavorite.notFavorited ? setFavorite(imgFavorite.favorited) : setFavorite(imgFavorite.notFavorited)
-    // }
+  const toggleFavorite = (title: string) => {
     setFavorites((prevFavorites) => ({
-      ...prevFavorites, 
-      [title]: !prevFavorites[title]
-    }))
+      ...prevFavorites,
+      [title]: !prevFavorites[title],
+    }));
+  };
 
-  }
+  const filteredFavorites = dados?.Search?.filter((item) => favorites[item.Title]);
 
   return (
     <div>
@@ -74,25 +63,29 @@ function App() {
       />
       <span>{searchValue.length <= 2 ? erroMinLength : ""}</span>
 
+      <h2>Favoritos</h2>
       <ul>
-        {dados?.Search?.map((e: SearchResult, i: number) => (
-          <li key={i} style={{ border: "1px solid", margin: "10px", width: "300px" }}>
-            {/* {console.log(e)} */}
-            <img src={e.Poster} alt={e.Title} />
-            <h3>{e.Title}</h3>
-            <span>{e.Year}</span>
-            <span> {e.Type}</span>
-            <img
-              src={favorites[e.Title] ? imgFavorite.favorited : imgFavorite.notFavorited}
-              alt="favorite"
-              onClick={() => toogleFavorite(e.Title)}
-              style={{ width: "32px", cursor: "pointer" }}
-            />
-          </li>
-        ))}
+        {filteredFavorites && (
+          <Cards
+            dados={filteredFavorites}
+            onFavoriteToggle={toggleFavorite}
+            favorites={favorites}
+          />
+        )}
+      </ul>
+
+      <h2>Todos os Resultados</h2>
+      <ul>
+        {dados && (
+          <Cards
+            dados={dados.Search}
+            onFavoriteToggle={toggleFavorite}
+            favorites={favorites}
+          />
+        )}
       </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
