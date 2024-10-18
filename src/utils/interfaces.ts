@@ -15,4 +15,5 @@ export interface ApiData {
     Search: SearchResult[];
     Response: string;
     Error: string;
+    totalResults: number | undefined;
 }
