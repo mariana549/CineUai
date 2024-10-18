@@ -1,25 +1,13 @@
 import React from 'react';
 import favorited from "../../../public/icons/favorited.png";
 import notfavorited from "../../../public/icons/notFavorited.png";
-
-interface SearchResult {
-  Poster: string;
-  Title: string;
-  Year: string;
-  Type: string;
-}
-
-interface CardsProps {
-  dados: SearchResult[];
-  onFavoriteToggle: (title: string) => void;
-  favorites: Record<string, boolean>;
-}
+import { CardsProps } from '../../utils/interfaces';
 
 const imgFavorite = {
   notFavorited: notfavorited,
   favorited: favorited,
 };
-
+ 
 export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites }) => {
   return (
     <>

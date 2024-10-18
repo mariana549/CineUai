@@ -1,26 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getApi_Search } from './services/requestApi';
 import { Cards } from './components/cards';
-
-interface ApiData {
-  Search: SearchResult[];
-}
-
-interface SearchResult {
-  Poster: string;
-  Title: string;
-  Year: string;
-  Type: string;
-}
+import { ApiData } from './utils/interfaces';
 
 function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
-  const [searchValue, setSearchValue] = useState('harry potter');
+  const [searchValue, setSearchValue] = useState('star wars');
   const [erroMinLength, setErrorMinLength] = useState('');
   const [favorites, setFavorites] = useState<Record<string, boolean>>(() => {
     const savedFavorites = localStorage.getItem('favorites');
     return savedFavorites ? JSON.parse(savedFavorites) : {};
   });
+  const [notFound, setNotFound] = useState<string | null>(null);
 
   useEffect(() => {
     async function getData() {
@@ -28,6 +19,11 @@ function App() {
         try {
           const data = await getApi_Search(searchValue);
           setDados(data);
+          if (data.Response === 'False') {
+            setNotFound(data.Error);
+          } else {
+            setNotFound(null);
+          }
         } catch (error) {
           console.log(`Não foi possivel completar a requisição, ERROR ${error}`);
         }
@@ -51,7 +47,7 @@ function App() {
     setFavorites((prevFavorites) => {
       const updatedFavorites = { ...prevFavorites, [title]: !prevFavorites[title] };
       
-      // Remove the item if it's not a favorite anymore
+      // Remove o item do localStorage, se ele não for mais um favorito.
       if (!updatedFavorites[title]) {
         delete updatedFavorites[title];
       }
@@ -79,24 +75,27 @@ function App() {
       
       <h2>Favoritos</h2>
       <ul>
-        {dados && (
+        { favoritesFromStorage.length > 0 && dados && dados?.Response === "True" && (
           <Cards 
-            dados={dados.Search.filter(item => favoritesFromStorage.includes(item.Title))} 
-            onFavoriteToggle={toggleFavorite} 
-            favorites={favorites} 
+          dados={dados.Search.filter(item => favoritesFromStorage.includes(item.Title))} 
+          onFavoriteToggle={toggleFavorite} 
+          favorites={favorites} 
           />
         )}
+        {dados?.Response === "False" && (<p>Nenhum favorito encontrado.</p>)}
       </ul>
 
       <h2>Todos os Resultados</h2>
       <ul>
-        {dados && (
+        {dados && (dados.Response === 'True' ? (
           <Cards 
             dados={dados.Search} 
             onFavoriteToggle={toggleFavorite} 
             favorites={favorites} 
           />
-        )}
+        ) : (
+          <p>{notFound}</p>
+        ))}
       </ul>
     </div>
   );
