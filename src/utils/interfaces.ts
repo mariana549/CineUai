@@ -17,3 +17,16 @@ export interface ApiData {
     Error: string;
     totalResults: number | undefined;
 }
+
+export interface PageChangeButtonProps {
+    numPageAtual: number;
+    setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
+    numPagesTotal: number;
+}
+
+export interface InputSearchProps {
+    searchValue: string;
+    setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
+  
+  
