@@ -27,6 +27,7 @@ export interface PageChangeButtonProps {
 export interface InputSearchProps {
     searchValue: string;
     setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+    setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
 }
   
   

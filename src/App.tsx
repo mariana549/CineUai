@@ -68,6 +68,7 @@ function App() {
         <InputSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          setNumPageAtual={setNumPageAtual}
         />
         <SpanErrorInput>{searchValue.length <= 2 ? erroMinLength : ""}</SpanErrorInput>
       </Header>
