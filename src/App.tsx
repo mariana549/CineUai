@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Cards } from './components/cards';
 import { ApiData } from './utils/interfaces';
-
-
 import { getData, getNumPagesTotal } from './functions/funcoes';
 import { PageChangeButton } from './utils/pageChangeButtons';
 import { InputSearch } from './components/search';
+
+import logo from "../public/images/botao-play (1).png"
 import { Container, H2, Header, Logo, Main, Pheader, Section, SpanErrorInput, StyledUL, VerificationMessage } from './AppStyled';
+import { Box } from './utils/pageChangeButtons/pageChangeButtonStled';
 
 function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
@@ -63,7 +64,10 @@ function App() {
   return (
     <Container>
       <Header>
-        <Logo>Cine Uai</Logo>
+        <Box>
+          <img src={logo} alt="logo" style={{width: "170px"}} />
+          <Logo>Cine Uai</Logo>
+        </Box>
         <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
         <InputSearch
           searchValue={searchValue}

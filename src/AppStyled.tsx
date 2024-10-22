@@ -22,8 +22,10 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.h1`
-  font-size: 48px;
-  margin: 0;
+  position: absolute;
+  top: 230;
+  font-size: 3.9rem;
+  color: #d2ffff;
 `;
 
 export const Pheader = styled.p`
