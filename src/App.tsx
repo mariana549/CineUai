@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Cards } from './components/cards';
 import { ApiData } from './utils/interfaces';
+
+
 import { getData, getNumPagesTotal } from './functions/funcoes';
 import { PageChangeButton } from './utils/pageChangeButtons';
 import { InputSearch } from './components/search';
-
 import { Container, H2, Header, Logo, Main, Pheader, Section, SpanErrorInput, StyledUL, VerificationMessage } from './AppStyled';
 
 function App() {
@@ -53,7 +54,11 @@ function App() {
   const numPagesTotal = getNumPagesTotal(numTotalResults);
 
   const favoritesFromStorage = Object.keys(favorites).filter((value) => favorites[value]);
-  const filteredFavorites = dados?.Search.filter(item => favoritesFromStorage.includes(item.Title)) || [];
+
+  const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
+
+  // transformar o resultado do filteredFavoritos em string
+  const transformFilterdFavoritos = JSON.stringify(filteredFavoritos); 
 
   return (
     <Container>
@@ -71,19 +76,22 @@ function App() {
         <Section>
           <H2>Favoritos</H2>
           <StyledUL>
-            {favoritesFromStorage.length > 0 && dados && dados.Response === "True" && filteredFavorites.length > 0 ? (
+            {favoritesFromStorage.length > 0 && dados && dados.Response === "True" ? (
               <Cards
-                dados={filteredFavorites}
+                dados={filteredFavoritos || []}
                 onFavoriteToggle={toggleFavorite}
                 favorites={favorites}
               />
             ) : (
               <VerificationMessage>
-                {favoritesFromStorage.length === 0 ?
-                  "Você não favoritou nada ainda." :
-                  "Não possui favoritos nessa página."}
+                Nenhum favorito encontrado.
               </VerificationMessage>
-            )}
+            )
+            } 
+            {transformFilterdFavoritos === "[]" && (
+              <VerificationMessage>
+                Não possui favoritos nessa página.
+              </VerificationMessage>)}
           </StyledUL>
         </Section>
 
@@ -102,7 +110,7 @@ function App() {
                 favorites={favorites}
               />
             ) : (
-              <p>{notFound}</p>
+              <VerificationMessage>{notFound}</VerificationMessage>
             ))}
           </StyledUL>
         </Section>
