@@ -54,6 +54,17 @@ export const H2 = styled.h2`
   padding-bottom: 5px;
 `;
 
+export const VerificationMessage = styled.p`
+  color: #0ca5c0;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 10px;
+`;
+
 export const SpanErrorInput = styled.span`
   color: #ac1f1f;
   margin-top: 10px;

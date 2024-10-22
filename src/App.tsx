@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Cards } from './components/cards';
 import { ApiData } from './utils/interfaces';
-
-
 import { getData, getNumPagesTotal } from './functions/funcoes';
 import { PageChangeButton } from './utils/pageChangeButtons';
 import { InputSearch } from './components/search';
-import { Container, H2, Header, Logo, Main, Pheader, Section, SpanErrorInput, StyledUL } from './AppStyled';
+
+import { Container, H2, Header, Logo, Main, Pheader, Section, SpanErrorInput, StyledUL, VerificationMessage } from './AppStyled';
 
 function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
@@ -54,6 +53,7 @@ function App() {
   const numPagesTotal = getNumPagesTotal(numTotalResults);
 
   const favoritesFromStorage = Object.keys(favorites).filter((value) => favorites[value]);
+  const filteredFavorites = dados?.Search.filter(item => favoritesFromStorage.includes(item.Title)) || [];
 
   return (
     <Container>
@@ -71,14 +71,19 @@ function App() {
         <Section>
           <H2>Favoritos</H2>
           <StyledUL>
-            {favoritesFromStorage.length > 0 && dados && dados.Response === "True" && (
+            {favoritesFromStorage.length > 0 && dados && dados.Response === "True" && filteredFavorites.length > 0 ? (
               <Cards
-                dados={dados.Search.filter(item => favoritesFromStorage.includes(item.Title))}
+                dados={filteredFavorites}
                 onFavoriteToggle={toggleFavorite}
                 favorites={favorites}
               />
+            ) : (
+              <VerificationMessage>
+                {favoritesFromStorage.length === 0 ?
+                  "Você não favoritou nada ainda." :
+                  "Não possui favoritos nessa página."}
+              </VerificationMessage>
             )}
-            {dados?.Response === "False" && (<p>Nenhum favorito encontrado.</p>)}
           </StyledUL>
         </Section>
 
