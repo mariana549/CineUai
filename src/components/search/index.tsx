@@ -1,9 +1,10 @@
 import { handleSearch } from "../../functions/funcoes";
 import { InputSearchProps } from "../../utils/interfaces";
+import { SearchInput } from "./searchStyled";
 
 export function InputSearch({searchValue, setSearchValue}: InputSearchProps) {
     return (
-        <input
+        <SearchInput
         type="search"
         name="pesquisa"
         id="pesquisa"

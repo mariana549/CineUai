@@ -1,5 +1,4 @@
 import { getApi_Search } from "../services/requestApi";
-import { InputSearchProps } from "../utils/interfaces";
 
 export async function getData(useStateDados) {
     if (useStateDados.searchValue.length >= 2) {

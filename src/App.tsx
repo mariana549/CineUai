@@ -6,10 +6,11 @@ import { ApiData } from './utils/interfaces';
 import { getData, getNumPagesTotal } from './functions/funcoes';
 import { PageChangeButton } from './utils/pageChangeButtons';
 import { InputSearch } from './components/search';
+import { Container, H2, Header, Logo, Main, Pheader, Section, SpanErrorInput, StyledUL } from './AppStyled';
 
 function App() {
   const [dados, setDados] = useState<ApiData | null>(null);
-  const [searchValue, setSearchValue] = useState('harry Potter');
+  const [searchValue, setSearchValue] = useState('Harry Potter');
   const [erroMinLength, setErrorMinLength] = useState('');
   const [favorites, setFavorites] = useState<Record<string, boolean>>(() => {
     const savedFavorites = localStorage.getItem('favorites');
@@ -55,21 +56,21 @@ function App() {
   const favoritesFromStorage = Object.keys(favorites).filter((value) => favorites[value]);
 
   return (
-    <>
-      <header>
-        <h1>Cine Uai</h1>
-        <p>Pesquise sua série ou filme favorita</p>
+    <Container>
+      <Header>
+        <Logo>Cine Uai</Logo>
+        <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
         <InputSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <span>{searchValue.length <= 2 ? erroMinLength : ""}</span>
-      </header>
+        <SpanErrorInput>{searchValue.length <= 2 ? erroMinLength : ""}</SpanErrorInput>
+      </Header>
 
-      <main>
-        <section>
-          <h2>Favoritos</h2>
-          <ul>
+      <Main>
+        <Section>
+          <H2>Favoritos</H2>
+          <StyledUL>
             {favoritesFromStorage.length > 0 && dados && dados.Response === "True" && (
               <Cards
                 dados={dados.Search.filter(item => favoritesFromStorage.includes(item.Title))}
@@ -78,17 +79,17 @@ function App() {
               />
             )}
             {dados?.Response === "False" && (<p>Nenhum favorito encontrado.</p>)}
-          </ul>
-        </section>
+          </StyledUL>
+        </Section>
 
-        <section>
-          <h2>Todos os Resultados</h2>
+        <Section>
+          <H2>Todos os Resultados</H2>
           <PageChangeButton
             numPageAtual={numPageAtual}
             setNumPageAtual={setNumPageAtual}
             numPagesTotal={numPagesTotal}
           />
-          <ul>
+          <StyledUL>
             {dados && (dados.Response === 'True' ? (
               <Cards
                 dados={dados.Search}
@@ -98,10 +99,10 @@ function App() {
             ) : (
               <p>{notFound}</p>
             ))}
-          </ul>
-        </section>
-      </main>
-    </>
+          </StyledUL>
+        </Section>
+      </Main>
+    </Container>
   );
 }
 

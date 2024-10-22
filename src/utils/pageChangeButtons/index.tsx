@@ -3,34 +3,35 @@ import { nextPage, prevPage } from "../../functions/funcoes";
 import leftArrow from '../../../public/icons/leftArrow.png';
 import rightArrow from '../../../public/icons/rigthArrow.png';
 import { PageChangeButtonProps } from "../interfaces";
+import { Box, ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
 
 export function PageChangeButton({
     numPageAtual,
     setNumPageAtual,
     numPagesTotal
 }: PageChangeButtonProps) {
-    
+
     return (
-        <div className='mudarPaginaBloco'>
+        <Box className='mudarPaginaBloco'>
             {numPageAtual > 1 && (
-                <button
+                <ToogleButton
                     type="button"
                     onClick={() => prevPage(numPageAtual, setNumPageAtual)}
                 >
-                    <img src={leftArrow} alt="leftArrow" style={{ width: "20px" }} />
-                </button>
+                    <ImgButton src={leftArrow} alt="leftArrow" />
+                </ToogleButton>
             )}
 
-            <span>Page {numPageAtual} de {numPagesTotal}</span>
+            <SpanButton>{numPageAtual} de {numPagesTotal}</SpanButton>
 
             {numPageAtual < numPagesTotal && (
-                <button
+                <ToogleButton
                     type="button"
                     onClick={() => nextPage(numPageAtual, numPagesTotal, setNumPageAtual)}
                 >
-                    <img src={rightArrow} alt="rightArrow" style={{ width: "20px" }} />
-                </button>
+                    <ImgButton src={rightArrow} alt="rightArrow" />
+                </ToogleButton>
             )}
-        </div>
+        </Box>
     )
 }
