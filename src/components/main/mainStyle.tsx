@@ -1,39 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: #000000; */
-  background-color: #f8f9fa;
-  color: #333;
-  min-height: 100vh;
-  /* padding: 20px; */
-`;
-
-export const Header = styled.header`
-  text-align: center;
-  padding: 20px;
-  background-color: #0ca5c0;
-  color: white;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-`;
-
-export const Logo = styled.h1`
-  position: absolute;
-  top: 230;
-  font-size: 3.9rem;
-  color: #d2ffff;
-`;
-
-export const Pheader = styled.p`
-  margin: 10px 0;
-  font-size: 18px;
-  color: #d1ecf1;
-`;
-
 export const Main = styled.main`
   width: 90%;
   display: flex;
@@ -67,12 +33,6 @@ export const VerificationMessage = styled.p`
   border-radius: 10px;
 `;
 
-export const SpanErrorInput = styled.span`
-  color: #ac1f1f;
-  margin-top: 10px;
-  display: block;
-`;
-
 export const StyledUL = styled.ul`
   list-style: none;
   padding: 0;
@@ -80,4 +40,3 @@ export const StyledUL = styled.ul`
   flex-wrap: wrap;
   gap: 10px;
 `;
-

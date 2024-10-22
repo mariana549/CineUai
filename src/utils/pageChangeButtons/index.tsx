@@ -3,7 +3,8 @@ import { nextPage, prevPage } from "../../functions/funcoes";
 import leftArrow from '../../../public/icons/leftArrow.png';
 import rightArrow from '../../../public/icons/rigthArrow.png';
 import { PageChangeButtonProps } from "../interfaces";
-import { Box, ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
+import { ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
+import { Box } from "../../globalStyled";
 
 export function PageChangeButton({
     numPageAtual,
@@ -12,7 +13,7 @@ export function PageChangeButton({
 }: PageChangeButtonProps) {
 
     return (
-        <Box className='mudarPaginaBloco'>
+        <Box>
             {numPageAtual > 1 && (
                 <ToogleButton
                     type="button"
