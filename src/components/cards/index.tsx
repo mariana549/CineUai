@@ -4,20 +4,33 @@ import notfavorited from "../../../public/icons/notFavorited.png";
 import semFoto from "../../../public/images/semfoto.png";
 import { CardsProps } from '../../utils/interfaces';
 import { CardContent, CardStled, FavoriteButton, FavoritedCardStyled, ImgCardStyled, MoreInfoButton, SpanCardStyled, TituloCardStyled } from './cardsStyled';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const imgFavorite = {
   notFavorited: notfavorited,
   favorited: favorited,
 };
 
-export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites}) => {
+// console.log(location) 
+
+export const Cards: React.FC<CardsProps> = ({
+  dados,
+  onFavoriteToggle,
+  favorites,
+  searchValue,
+  numPageAtual,
+}) => {
+  console.log(numPageAtual)
+  const handleLinkClick = () => {
+    localStorage.setItem('searchValue', searchValue);
+    localStorage.setItem('numPageAtual', numPageAtual);
+  };  
+     console.log(localStorage)
+    
   return (
     <>
       {dados?.map((e, i) => (
-        <CardStled 
-        onClick={()=> console.log(e.imdbID)}
-        key={i}>
+        <CardStled key={i}>
           <ImgCardStyled src={e.Poster === "N/A" ? semFoto : e.Poster} alt={e.Title} />
           <FavoriteButton>
             <FavoritedCardStyled
@@ -32,6 +45,7 @@ export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites
             {/*.replace(/\s+/g, '_') Remover Espaços do Título e adicionar o underline */}
             <Link
               to={`/${e.Type}/${e.imdbID}/${e.Title.replace(/\s+/g, '_')}`}
+              onClick={handleLinkClick}
             >
               <MoreInfoButton>ver mais</MoreInfoButton>
             </Link>

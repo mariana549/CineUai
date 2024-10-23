@@ -8,14 +8,14 @@ import { InputSearch } from "../components/search";
 
 export function Home() {
   const [dados, setDados] = useState<ApiData | null>(null);
-  const [searchValue, setSearchValue] = useState('Harry Potter');
+  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || "Harry potter");
   const [erroMinLength, setErrorMinLength] = useState('');
   const [favorites, setFavorites] = useState<Record<string, boolean>>(() => {
     const savedFavorites = localStorage.getItem('favorites');
     return savedFavorites ? JSON.parse(savedFavorites) : {};
   });
   const [notFound, setNotFound] = useState<string | null>(null);
-  const [numPageAtual, setNumPageAtual] = useState(1);
+  const [numPageAtual, setNumPageAtual] = useState(parseInt(localStorage.getItem('numPageAtual') || '1', 10));
 
   useEffect(() => {
     const useStateDados = {
@@ -81,6 +81,7 @@ export function Home() {
         setNumPageAtual={setNumPageAtual}
         numPagesTotal={numPagesTotal}
         notFound={notFound}
+        searchValue={searchValue}
       />
     </Container>
   )

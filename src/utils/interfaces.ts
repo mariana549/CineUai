@@ -30,6 +30,8 @@ export interface CardsProps {
     dados: SearchResult[];
     onFavoriteToggle: (title: string) => void;
     favorites: Record<string, boolean>;
+    searchValue: string;
+    numPageAtual: number;
 }
 
 export interface ApiData {
