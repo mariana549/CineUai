@@ -18,9 +18,9 @@ export async function getData(useStateDados) {
     }
 }
 
-export async function getDetails(setDados, title) {
+export async function getDetails(setDados, id, plot) {
   try {
-    const data = await getApi_Dados(title);
+    const data = await getApi_Dados(id, plot);
     setDados(data)
   } catch (error) {
     console.error(error)

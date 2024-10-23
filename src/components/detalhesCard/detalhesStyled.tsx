@@ -31,7 +31,6 @@ export const Figure = styled.figure`
     max-width: 300px;
     height: auto;
     border-radius: 10px;
-    z-index: 1;
     transition: transform 0.3s ease;
 
     &:hover {
@@ -44,7 +43,7 @@ export const Figure = styled.figure`
   }
   
   figcaption {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #0ca5c0;
     margin-top: 10px;
@@ -62,23 +61,15 @@ export const Section = styled.section`
       text-decoration: underline;
     }
   }
-
-  h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #0ca5c0;
-    border-bottom: 2px solid #0ca5c0;
-    padding-bottom: 5px;
-  }
 `;
 
 export const Table = styled.table`
   width: 100%;
-  border-collapse: collapse;
   margin-top: 20px;
 `;
 
 export const Th = styled.th`
+  border-radius: 5px;
   background-color: #0ca5c0;
   color: white;
   padding: 10px;
@@ -86,20 +77,60 @@ export const Th = styled.th`
 `;
 
 export const Td = styled.td`
+border-radius: 5px;
+
   border: 1px solid #ccc;
   padding: 10px;
-  vertical-align: top;
+  text-align: end;
 `;
 
 export const Tr = styled.tr`
   &:nth-child(even) {
     background-color: #f2f2f2;
   }
+
+  &:hover {
+    background-color: #e6f7ff;
+  }
+`;
+
+export const Thead = styled.thead`
+  ${Tr} {
+    background-color: #d4f8ff;
+
+    &:nth-child(even) {
+    background-color: #cdf3ff;
+  }
+
+    &:hover {
+      background-color: #53d0e684; 
+    }
+  }
+
+  ${Td}{
+    border: 1px solid #05043649;
+  }
+
+`;
+
+export const RatingItem = styled.li`
+  background: #f8f9fa;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  text-align: center;
+
+  strong {
+    color: #0ca5c0;
+  }
 `;
 
 export const Label = styled.label`
   display: flex;
   gap: 10px;
+  margin: 10px 0;
   text-transform: capitalize;
   align-items: center; 
 `;
@@ -112,6 +143,6 @@ export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
 `
 export const PlotParagrafro = styled.p`
   font-size: 18px;
-  font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
   margin-top: 5px;
+  text-align: center;
 `;

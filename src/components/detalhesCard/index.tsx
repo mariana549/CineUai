@@ -1,31 +1,40 @@
 import { useEffect, useState } from "react";
 import { getDetails } from "../../functions/funcoes";
 import { SearchResult } from "../../utils/interfaces";
-import { Figure, InputCheckBox, Label, Main, PlotParagrafro, Section, Table, Td, Th, Tr } from "./detalhesStyled";
+import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./detalhesStyled";
 import { Link, useParams } from "react-router-dom";
-import Voltar  from "../../../public/icons/return.png"
+import Voltar from "../../../public/icons/return.png"
+import { HeaderCards } from "../header";
 
 
 export function DestalhesCard() {
     const [dados, setDados] = useState<SearchResult>();
     const { id } = useParams();
+    const [plot, setPlot] = useState("short");
 
+    const plotFullCheck = (e) => {
+        if (e.target.checked == true) {
+            setPlot("full");
+        } else {
+            setPlot("short");
+        }
+    };
 
     useEffect(() => {
-        getDetails(setDados, id)
-    }, [])
-
+        getDetails(setDados, id, plot);
+    }, [plot]);
 
     return (
+        <>
         <Main>
-            <Link to={"/"}><img src={Voltar} alt="retornar"/></Link>
+            <Link to={"/"}><img src={Voltar} alt="retornar" /></Link>
             <Figure>
                 <img src={dados?.Poster} alt={dados?.Title} />
                 <figcaption><h1>{dados?.Title}</h1></figcaption>
             </Figure>
             <Section>
                 <Table>
-                    <thead>
+                    <Thead>
                         <Tr>
                             <Th>Atores</Th>
                             <Td>{dados?.Actors}</Td>
@@ -35,8 +44,8 @@ export function DestalhesCard() {
                             <Td>{dados?.Director}</Td>
                         </Tr>
                         <Tr>
-                            <Th>Ano de lançamento</Th>
-                            <Td>{dados?.Year}</Td>
+                            <Th>Lançado</Th>
+                            <Td>{dados?.Released}</Td>
                         </Tr>
                         <Tr>
                             <Th>Gênero</Th>
@@ -58,7 +67,7 @@ export function DestalhesCard() {
                             <Th>Duração</Th>
                             <Td>{dados?.Runtime}</Td>
                         </Tr>
-                    </thead>
+                    </Thead>
                     <tbody>
                         <Tr>
                             <Th>Prêmios</Th>
@@ -86,23 +95,6 @@ export function DestalhesCard() {
                             <Td>{dados?.Rated}</Td>
                         </Tr>
                         <Tr>
-                            <Th>Ratings</Th>
-                            <Td>
-                                <ul>
-                                    {dados?.Ratings.map((e, i) => (
-                                        <li key={i}>
-                                            <strong>Source:</strong> {e.Source}<br />
-                                            <strong>Value:</strong> {e.Value}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th>Lançado</Th>
-                            <Td>{dados?.Released}</Td>
-                        </Tr>
-                        <Tr>
                             <Th>Tipo</Th>
                             <Td>{dados?.Type}</Td>
                         </Tr>
@@ -123,11 +115,24 @@ export function DestalhesCard() {
                             <Td>{dados?.imdbVotes}</Td>
                         </Tr>
                         <Tr>
+                            <Th>Ratings</Th>
+                            <Td>
+                                <ul>
+                                    {dados?.Ratings.map((e, i) => (
+                                        <RatingItem key={i}>
+                                            <strong>Source:</strong> {e.Source}<br />
+                                            <strong>Value:</strong> {e.Value}
+                                        </RatingItem>
+                                    ))}
+                                </ul>
+                            </Td>
+                        </Tr>
+                        <Tr>
                             <Th>Enredo</Th>
                             <Td>
                                 <Label htmlFor="plotFull">
-                                    plot full
-                                    <InputCheckBox type="checkbox" name="plotFull" id="plotFull" />
+                                    {plot}
+                                    <InputCheckBox type="checkbox" name="plotFull" id="plotFull" onClick={(e) => plotFullCheck(e)} />
                                 </Label>
                                 <PlotParagrafro>{dados?.Plot}</PlotParagrafro>
                             </Td>
@@ -136,6 +141,6 @@ export function DestalhesCard() {
                 </Table>
             </Section>
         </Main>
-
+        </>
     )
 }
