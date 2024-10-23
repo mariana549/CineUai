@@ -110,7 +110,6 @@ export const Thead = styled.thead`
   ${Td}{
     border: 1px solid #05043649;
   }
-
 `;
 
 export const RatingItem = styled.li`

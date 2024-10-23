@@ -26,8 +26,12 @@ export function DestalhesCard() {
 
     return (
         <>
+        <HeaderCards>
+            <Link to={"/"}>
+            <img src={Voltar} alt="retornar" />
+            </Link>
+        </HeaderCards>
         <Main>
-            <Link to={"/"}><img src={Voltar} alt="retornar" /></Link>
             <Figure>
                 <img src={dados?.Poster} alt={dados?.Title} />
                 <figcaption><h1>{dados?.Title}</h1></figcaption>

@@ -22,9 +22,3 @@ export const Pheader = styled.p`
   font-size: 18px;
   color: #d1ecf1;
 `;
-
-export const SpanErrorInput = styled.span`
-  color: #ac1f1f;
-  margin-top: 10px;
-  display: block;
-`;

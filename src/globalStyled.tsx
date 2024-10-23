@@ -19,6 +19,12 @@ export const Box = styled.div`
   margin: 20px 0;
 `;
 
+export const SpanErrorInput = styled.span`
+  color: #ac1f1f;
+  margin-top: 10px;
+  display: block;
+`;
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
