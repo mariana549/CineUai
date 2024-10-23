@@ -5,7 +5,7 @@ import { Container } from "../globalStyled";
 import { MainCards } from "../components/main";
 import { HeaderCards } from "../components/header";
 
-export function Home ({setDadosDetalhesCard}) {
+export function Home () {
     const [dados, setDados] = useState<ApiData | null>(null);
     const [searchValue, setSearchValue] = useState('Harry Potter');
     const [erroMinLength, setErrorMinLength] = useState('');
@@ -78,7 +78,6 @@ export function Home ({setDadosDetalhesCard}) {
                 setNumPageAtual={setNumPageAtual}
                 numPagesTotal ={numPagesTotal}
                 notFound={notFound}
-                setDadosDetalhesCard={setDadosDetalhesCard}
             />
         </Container>
     )

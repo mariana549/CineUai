@@ -11,7 +11,7 @@ const imgFavorite = {
   favorited: favorited,
 };
 
-export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites, setDadosDetalhesCard }) => {
+export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites}) => {
   return (
     <>
       {dados?.map((e, i) => (
@@ -31,8 +31,7 @@ export const Cards: React.FC<CardsProps> = ({ dados, onFavoriteToggle, favorites
             <SpanCardStyled>{e.Year} {e.Type}</SpanCardStyled>
             {/*.replace(/\s+/g, '_') Remover Espaços do Título e adicionar o underline */}
             <Link
-              to={`/${e.Type}/${e.Title.replace(/\s+/g, '_')}`}
-              onClick={()=> setDadosDetalhesCard(e.imdbID)}
+              to={`/${e.Type}/${e.imdbID}/${e.Title.replace(/\s+/g, '_')}`}
             >
               <MoreInfoButton>ver mais</MoreInfoButton>
             </Link>

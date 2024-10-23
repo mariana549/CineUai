@@ -1,21 +1,141 @@
 import { useEffect, useState } from "react";
 import { getDetails } from "../../functions/funcoes";
+import { SearchResult } from "../../utils/interfaces";
+import { Figure, InputCheckBox, Label, Main, PlotParagrafro, Section, Table, Td, Th, Tr } from "./detalhesStyled";
+import { Link, useParams } from "react-router-dom";
+import Voltar  from "../../../public/icons/return.png"
 
 
-export function DestalhesCard({dadosDetalhesCard}) {
-    const [dados, setDados] = useState();
+export function DestalhesCard() {
+    const [dados, setDados] = useState<SearchResult>();
+    const { id } = useParams();
 
-    console.log(dadosDetalhesCard)
 
     useEffect(() => {
-        getDetails(setDados, dadosDetalhesCard)
+        getDetails(setDados, id)
     }, [])
-    
-    console.log(dados)
+
 
     return (
-        <main>
-            <h1>{dadosDetalhesCard}</h1>
-        </main>
+        <Main>
+            <Link to={"/"}><img src={Voltar} alt="retornar"/></Link>
+            <Figure>
+                <img src={dados?.Poster} alt={dados?.Title} />
+                <figcaption><h1>{dados?.Title}</h1></figcaption>
+            </Figure>
+            <Section>
+                <Table>
+                    <thead>
+                        <Tr>
+                            <Th>Atores</Th>
+                            <Td>{dados?.Actors}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Diretor</Th>
+                            <Td>{dados?.Director}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Ano de lançamento</Th>
+                            <Td>{dados?.Year}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Gênero</Th>
+                            <Td>{dados?.Genre}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Classificação IMDb</Th>
+                            <Td>{dados?.imdbRating}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Bilheteria</Th>
+                            <Td>{dados?.BoxOffice}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>País</Th>
+                            <Td>{dados?.Country}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Duração</Th>
+                            <Td>{dados?.Runtime}</Td>
+                        </Tr>
+                    </thead>
+                    <tbody>
+                        <Tr>
+                            <Th>Prêmios</Th>
+                            <Td>{dados?.Awards}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>DVD</Th>
+                            <Td>{dados?.DVD}</Td>
+                        </Tr>
+
+                        <Tr>
+                            <Th>Linguagem</Th>
+                            <Td>{dados?.Language}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Metascore</Th>
+                            <Td>{dados?.Metascore}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Produção</Th>
+                            <Td>{dados?.Production}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Classificação</Th>
+                            <Td>{dados?.Rated}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Ratings</Th>
+                            <Td>
+                                <ul>
+                                    {dados?.Ratings.map((e, i) => (
+                                        <li key={i}>
+                                            <strong>Source:</strong> {e.Source}<br />
+                                            <strong>Value:</strong> {e.Value}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Lançado</Th>
+                            <Td>{dados?.Released}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Tipo</Th>
+                            <Td>{dados?.Type}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Site</Th>
+                            <Td><a href={dados?.Website} target="_blank" rel="noopener noreferrer">{dados?.Website}</a></Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Escritor</Th>
+                            <Td>{dados?.Writer}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>ID</Th>
+                            <Td>{dados?.imdbID}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Votos no IMDb</Th>
+                            <Td>{dados?.imdbVotes}</Td>
+                        </Tr>
+                        <Tr>
+                            <Th>Enredo</Th>
+                            <Td>
+                                <Label htmlFor="plotFull">
+                                    plot full
+                                    <InputCheckBox type="checkbox" name="plotFull" id="plotFull" />
+                                </Label>
+                                <PlotParagrafro>{dados?.Plot}</PlotParagrafro>
+                            </Td>
+                        </Tr>
+                    </tbody>
+                </Table>
+            </Section>
+        </Main>
+
     )
 }
