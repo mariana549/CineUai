@@ -3,12 +3,14 @@ interface SearchResult {
     Title: string;
     Year: string;
     Type: string;
+    imdbID: string;
 }
 
 export interface CardsProps {
     dados: SearchResult[];
     onFavoriteToggle: (title: string) => void;
     favorites: Record<string, boolean>;
+    setDadosDetalhesCard: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface ApiData {

@@ -2,7 +2,7 @@ import { PageChangeButton } from "../../utils/pageChangeButtons";
 import { Cards } from "../cards";
 import { H2, Main, Section, StyledUL, VerificationMessage } from "./mainStyle";
 
-export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggleFavorite, favorites, transformFilterdFavoritos, numPageAtual, setNumPageAtual, numPagesTotal, notFound}) {
+export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggleFavorite, favorites, transformFilterdFavoritos, numPageAtual, setNumPageAtual, numPagesTotal, notFound, setDadosDetalhesCard}) {
 
     return (
         <Main>
@@ -14,6 +14,7 @@ export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggl
                             dados={filteredFavoritos || []}
                             onFavoriteToggle={toggleFavorite}
                             favorites={favorites}
+                            setDadosDetalhesCard={setDadosDetalhesCard}
                         />
                     ) : (
                         <VerificationMessage>
@@ -41,6 +42,7 @@ export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggl
                             dados={dados.Search}
                             onFavoriteToggle={toggleFavorite}
                             favorites={favorites}
+                            setDadosDetalhesCard={setDadosDetalhesCard}
                         />
                     ) : (
                         <VerificationMessage>{notFound}</VerificationMessage>

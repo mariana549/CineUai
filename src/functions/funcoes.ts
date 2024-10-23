@@ -1,4 +1,4 @@
-import { getApi_Search } from "../services/requestApi";
+import { getApi_Dados, getApi_Search } from "../services/requestApi";
 
 export async function getData(useStateDados) {
     if (useStateDados.searchValue.length >= 2) {
@@ -16,6 +16,15 @@ export async function getData(useStateDados) {
     } else {
       useStateDados.setErrorMinLength("Digite no mínimo 3 caracteres");
     }
+}
+
+export async function getDetails(setDados, title) {
+  try {
+    const data = await getApi_Dados(title);
+    setDados(data)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 
