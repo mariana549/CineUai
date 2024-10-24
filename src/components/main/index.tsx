@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageChangeButton } from "../../utils/pageChangeButtons";
 import { Cards } from "../cards";
-import { H2, H4, ListItem, Main, Section, StyledDiv, StyledUL, VerificationMessage } from "./mainStyle";
+import { ClearButton, H2, H4, ListItem, Main, Section, StyledDiv, StyledUL, VerificationMessage } from "./mainStyle";
 
 export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue, setFavorites }) {
     const favoritesList = Object.keys(favorites).map((id) => ({
@@ -25,7 +25,7 @@ export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setN
         <Main>
             <Section>
                 <H2>Favoritos</H2>
-                <button onClick={clearAllFavorites}>Limpar Todos os Favoritos</button>
+                <ClearButton onClick={clearAllFavorites}>Excluir Todos os Favoritos</ClearButton>
                 <StyledDiv>
                     <H4>lista completa de favoritos</H4>
                     <StyledUL>

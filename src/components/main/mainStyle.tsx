@@ -52,6 +52,19 @@ export const ListItem = styled.li`
   }
 `
 
+export const ClearButton = styled.button`
+  padding: 10px 20px;
+  background-color: #0ca5c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  &:hover {
+    background-color: #0e88a0;
+  }
+`;
+
 export const VerificationMessage = styled.p`
   color: #0ca5c0;
   font-size: 18px;
