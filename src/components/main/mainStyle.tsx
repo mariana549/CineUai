@@ -22,6 +22,36 @@ export const H2 = styled.h2`
   padding-bottom: 5px;
 `;
 
+;
+
+export const H4 = styled.h4`
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #555;
+`;
+
+export const StyledDiv = styled.div`
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+`;
+
+export const ListItem = styled.li`
+  padding: 5px;
+  color: black;
+  border-bottom: 1px solid #ddd;
+  font-size: 11px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+    zoom: 1.4;
+  }
+`
+
 export const VerificationMessage = styled.p`
   color: #0ca5c0;
   font-size: 18px;

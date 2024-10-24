@@ -29,7 +29,7 @@ export interface SearchResult {
 export interface CardsProps {
     dados: SearchResult[];
     onFavoriteToggle: (title: string) => void;
-    favorites: Record<string, boolean>;
+    favorites:  Record<string, { title: string; isFavorite: boolean }>;
     searchValue: string;
     numPageAtual: number;
 }

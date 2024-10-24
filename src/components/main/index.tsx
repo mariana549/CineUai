@@ -1,13 +1,49 @@
+import { Link } from "react-router-dom";
 import { PageChangeButton } from "../../utils/pageChangeButtons";
 import { Cards } from "../cards";
-import { H2, Main, Section, StyledUL, VerificationMessage } from "./mainStyle";
+import { H2, H4, ListItem, Main, Section, StyledDiv, StyledUL, VerificationMessage } from "./mainStyle";
 
-export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggleFavorite, favorites, transformFilterdFavoritos, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue}) {
+export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue, setFavorites }) {
+    const favoritesList = Object.keys(favorites).map((id) => ({
+        title: favorites[id].title,
+        id,
+    }));
+
+    const clearAllFavorites = () => {
+        setFavorites({});
+        localStorage.removeItem('favorites');
+    };
+
+
+    const favoritesFromStorage = favoritesList.map((e) => e.title);
+    const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
+
+    // transformar o resultado do filteredFavoritos em string
+    const transformFilterdFavoritos = JSON.stringify(filteredFavoritos);
 
     return (
         <Main>
             <Section>
                 <H2>Favoritos</H2>
+                <button onClick={clearAllFavorites}>Limpar Todos os Favoritos</button>
+                <StyledDiv>
+                    <H4>lista completa de favoritos</H4>
+                    <StyledUL>
+                        {favoritesList.map((e, i) =>
+                            <Link
+                                to={`/detalhes/${e.id}/${e.title.replace(/\s+/g, '_')}`}
+                                key={i}
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <ListItem>
+                                    {e.title}
+                                </ListItem>
+                            </Link>
+                        )}
+                    </StyledUL>
+                </StyledDiv>
+
+                <H4>Favoritos nessa pagina</H4>
                 <StyledUL>
                     {favoritesFromStorage.length > 0 && dados && dados.Response === "True" ? (
                         <Cards
@@ -38,17 +74,22 @@ export function MainCards({favoritesFromStorage, dados, filteredFavoritos, toggl
                     numPagesTotal={numPagesTotal}
                 />
                 <StyledUL>
-                    {dados && (dados.Response === 'True' ? (
-                        <Cards
-                            dados={dados.Search}
-                            onFavoriteToggle={toggleFavorite}
-                            favorites={favorites}
-                            searchValue={searchValue}
-                            numPageAtual={numPageAtual}
-                        />
-                    ) : (
-                        <VerificationMessage>{notFound}</VerificationMessage>
-                    ))}
+                    {
+                        dados && (dados.Response === 'True' ? (
+                            // favoritesList.map((item, index) => 
+                            <Cards
+                                // key={index} 
+                                dados={dados.Search}
+                                onFavoriteToggle={toggleFavorite}
+                                favorites={favorites}
+                                searchValue={searchValue}
+                                numPageAtual={numPageAtual}
+                            />
+                            // )
+                        ) : (
+                            <VerificationMessage>{notFound}</VerificationMessage>
+                        ))
+                    }
                 </StyledUL>
             </Section>
         </Main>
