@@ -1,20 +1,32 @@
 import React from 'react';
-import favorited from "../../../public/icons/favorited.png";
-import notfavorited from "../../../public/icons/notFavorited.png";
-import semFoto from "../../../public/images/semfoto.png";
 import { CardsProps } from '../../utils/interfaces';
-import { CardContent, CardStled, FavoriteButton, FavoritedCardStyled, ImgCardStyled, MoreInfoButton, SpanCardStyled, TituloCardStyled } from './cardsStyled';
+
+import {
+  CardContent,
+  CardStled,
+  FavoriteButton,
+  FavoritedCardStyled,
+  ImgCardStyled,
+  MoreInfoButton,
+  SpanCardStyled,
+  TituloCardStyled
+} from './cardsStyled';
+
 import { Link } from 'react-router-dom';
 import { useFavorites } from '../../hooks/useFavorites';
 import { useData } from '../../hooks/useData';
 import { usePage } from '../../hooks/usePage';
+
+import favorited from "../../../public/icons/favorited.png";
+import notfavorited from "../../../public/icons/notFavorited.png";
+import semFoto from "../../../public/images/semfoto.png";
 
 const imgFavorite = {
   notFavorited: notfavorited,
   favorited: favorited,
 };
 
-export const Cards: React.FC<CardsProps> = ({dados}) => {
+export const Cards: React.FC<CardsProps> = ({ dados }) => {
   const { searchValue } = useData()
   const { numPageAtual } = usePage()
   const { favorites, toggleFavorite } = useFavorites();
@@ -30,13 +42,15 @@ export const Cards: React.FC<CardsProps> = ({dados}) => {
       {dados?.map((e, i) => (
         <CardStled key={i}>
           <ImgCardStyled src={e.Poster === "N/A" ? semFoto : e.Poster} alt={e.Title} />
+
           <FavoriteButton>
-              <FavoritedCardStyled
-                src={favorites[e.imdbID]?.isFavorite ? imgFavorite.favorited : imgFavorite.notFavorited}
-                alt="favorite"
-                onClick={() => toggleFavorite(e.Title, e.imdbID)}
-              />
+            <FavoritedCardStyled
+              src={favorites[e.imdbID]?.isFavorite ? imgFavorite.favorited : imgFavorite.notFavorited}
+              alt="favorite"
+              onClick={() => toggleFavorite(e.Title, e.imdbID)}
+            />
           </FavoriteButton>
+
           <CardContent>
             <TituloCardStyled>{e.Title}</TituloCardStyled>
             <SpanCardStyled>{e.Year} {e.Type}</SpanCardStyled>
@@ -47,6 +61,7 @@ export const Cards: React.FC<CardsProps> = ({dados}) => {
             >
               <MoreInfoButton>ver mais</MoreInfoButton>
             </Link>
+            
           </CardContent>
         </CardStled>
       ))}

@@ -1,11 +1,11 @@
 import { Header, Logo, Pheader } from "./headerStyled";
-import logo from "../../../public/images/botao-play (1).png"
 import { Box } from "../../globalStyled";
-import { ReactNode } from "react";
 
-export function HeaderCards({ children }: {
-  children: ReactNode;
-}): JSX.Element{
+import { PropsChildren } from "../../utils/interfaces";
+
+import logo from "../../../public/images/logo.png"
+
+export function HeaderCards({ children }: PropsChildren){
 
   return (
     <Header>

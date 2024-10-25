@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface SearchResult {
     Poster: string;
     Title: string;
@@ -25,6 +27,10 @@ export interface SearchResult {
     Plot: string;
 }
 
+export interface PropsChildren {
+    children: ReactNode;
+}  
+
 export interface CardsProps {
     dados: SearchResult[];
 }
@@ -34,12 +40,6 @@ export interface ApiData {
     Response: string;
     Error: string;
     totalResults: number | undefined;
-}
-
-export interface PageChangeButtonProps {
-    numPageAtual: number;
-    setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
-    numPagesTotal: number;
 }
 
 export interface DataContextType {

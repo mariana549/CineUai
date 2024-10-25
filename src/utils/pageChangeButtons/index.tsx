@@ -1,16 +1,16 @@
 import { nextPage, prevPage } from "../../functions/funcoes";
+import { usePage } from "../../hooks/usePage";
+import { useData } from "../../hooks/useData";
 
-import leftArrow from '../../../public/icons/leftArrow.png';
-import rightArrow from '../../../public/icons/rigthArrow.png';
-import { PageChangeButtonProps } from "../interfaces";
 import { ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
 import { Box } from "../../globalStyled";
 
-export function PageChangeButton({
-    numPageAtual,
-    setNumPageAtual,
-    numPagesTotal
-}: PageChangeButtonProps) {
+import leftArrow from '../../../public/icons/leftArrow.png';
+import rightArrow from '../../../public/icons/rigthArrow.png';
+
+export function PageChangeButton() {
+    const { numPageAtual, setNumPageAtual } = usePage()
+    const { numPagesTotal } = useData()
 
     return (
         <Box>

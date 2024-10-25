@@ -56,7 +56,8 @@ export const AppProvider = ({ children }) => {
     return (
         <DataContext.Provider value={{
             searchValue: searchValue,
-            numTotalResults: numTotalResults, numPagesTotal: numPagesTotal,
+            numTotalResults: numTotalResults, 
+            numPagesTotal: numPagesTotal,
             erroMinLength: erroMinLength,
             dados: dados,
             setSearchValue: setSearchValue,
