@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { backgroundColor } from "./utils/constants/constThemes";
+import { backgroundColor, highlightColor, primaryColor, textColor } from "./utils/constants/constThemes";
 
 export const Container = styled.div`
   display: flex;
@@ -23,6 +23,35 @@ export const SpanErrorInput = styled.span`
   margin-top: 10px;
   display: block;
 `;
+
+export const StyledUL = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+export const H4 = styled.h4`
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: ${textColor};
+`;
+
+
+export const ClearButton = styled.button`
+  padding: 10px 20px;
+  background-color: ${primaryColor};
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  &:hover {
+    background-color: ${highlightColor};
+  }
+`;
+
 
 export const GlobalStyle = createGlobalStyle`
   * {

@@ -1,15 +1,9 @@
-import { Link } from "react-router-dom";
+import { H4, StyledUL } from "../../globalStyled";
 import { PageChangeButton } from "../../utils/pageChangeButtons";
 import { Cards } from "../cards";
-import { ClearButton, ClearFavorite, H2, H4, ListItem, Main, Section, StyledDiv, StyledUL, VerificationMessage } from "./mainStyle";
-import { clearAllFavorites, clearFavorite } from "../../functions/funcoes";
+import { H2, Main, Section, VerificationMessage } from "./mainStyle";
 
-export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue, setFavorites }) {
-    const favoritesList = Object.keys(favorites).map((id) => ({
-        title: favorites[id].title,
-        id,
-    }));
-
+export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue, favoritesList, children}) {
 
     const favoritesFromStorage = favoritesList.map((e) => e.title);
     const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
@@ -21,33 +15,7 @@ export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setN
         <Main>
             <Section>
                 <H2>Favoritos</H2>
-                <ClearButton onClick={() => clearAllFavorites(setFavorites)}>
-                    Excluir Todos os Favoritos
-                </ClearButton>
-                <StyledDiv>
-                    <H4>lista completa de favoritos</H4>
-                    <StyledUL>
-                        {favoritesList.map((e, i) =>
-                            <>
-                                <ClearFavorite
-                                    type="button"
-                                    onClick={() => clearFavorite(e.title, e.id, setFavorites)}
-                                >
-                                    X
-                                </ClearFavorite>
-                                <Link
-                                    to={`/detalhes/${e.id}/${e.title.replace(/\s+/g, '_')}`}
-                                    key={i}
-                                    style={{ textDecoration: 'none' }}
-                                >
-                                    <ListItem>
-                                        {e.title}
-                                    </ListItem>
-                                </Link>
-                            </>
-                        )}
-                    </StyledUL>
-                </StyledDiv>
+                {children}
 
                 <H4>Favoritos nessa pagina</H4>
                 <StyledUL>
