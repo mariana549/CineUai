@@ -1,12 +1,17 @@
 import { ToggleButton } from "./toogleButton";
 import sol from "../../../public/icons/sol.png"
 import lua from "../../../public/icons/lua.png"
+import { ThemeTypes } from "../interfaces";
 
-export function TogglerButton({ togglerButton, theme }) {
+export function TogglerButton({ setTheme, theme }: ThemeTypes) {
     const SolLua = {
         Sol: sol,
         Lua: lua,
     };
+
+    function togglerButton() {
+        setTheme((prevState) => prevState === 'light' ? "dark" : "light");
+    }
 
     return (
         <ToggleButton type="button" onClick={togglerButton}>

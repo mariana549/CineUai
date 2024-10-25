@@ -13,17 +13,13 @@ export function AppRoutes() {
         return savedTheme ? savedTheme : "light";
     });
 
-    function togglerButton() {
-        setTheme((prevState) => prevState === 'light' ? "dark" : "light");
-    }
-
     useEffect(() => {
         localStorage.setItem("ThemeAtual", theme);
     }, [theme]);
 
     return (
         <ThemeProvider theme={{ Theme: Themes[theme] }}>
-            <TogglerButton togglerButton={togglerButton} theme={theme} />
+            <TogglerButton setTheme={setTheme} theme={theme} />
             <AppProvider>
                 <Routes>
                     <Route path="/" element={<Home />} />

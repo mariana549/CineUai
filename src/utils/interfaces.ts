@@ -25,7 +25,6 @@ export interface SearchResult {
     Plot: string;
 }
 
-
 export interface CardsProps {
     dados: SearchResult[];
 }
@@ -41,12 +40,6 @@ export interface PageChangeButtonProps {
     numPageAtual: number;
     setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
     numPagesTotal: number;
-}
-
-export interface InputSearchProps {
-    searchValue: string;
-    setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-    setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface DataContextType {
@@ -72,4 +65,9 @@ export interface FavoritesContextType {
 export interface PageContextType {
     numPageAtual: number;
     setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface ThemeTypes {
+    theme: string,
+    setTheme: React.Dispatch<React.SetStateAction<string>>
 }

@@ -1,13 +1,17 @@
 import { handleSearch } from "../../functions/funcoes";
-import { InputSearchProps } from "../../utils/interfaces";
+import { useData } from "../../hooks/useData";
+import { usePage } from "../../hooks/usePage";
 import { SearchInput } from "./searchStyled";
 
-export function InputSearch({searchValue, setSearchValue, setNumPageAtual}: InputSearchProps) {
+export function InputSearch() {
+  const { setSearchValue, searchValue } = useData();
+  const { setNumPageAtual } = usePage()
+
   const handleSearchWithReset = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleSearch( event, setSearchValue );
     setNumPageAtual(1); // Reseta a página atual para 1
   };
-
+  
   return (
     <SearchInput
       type="search"
