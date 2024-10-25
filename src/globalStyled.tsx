@@ -1,14 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { backgroundColor } from "./utils/constants/constThemes";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #000000; */
-  background-color: #f8f9fa;
+  background-color: ${backgroundColor};
   color: #333;
   min-height: 100vh;
-  /* padding: 20px; */
 `;
 
 export const Box = styled.div`
@@ -20,7 +19,7 @@ export const Box = styled.div`
 `;
 
 export const SpanErrorInput = styled.span`
-  color: #ac1f1f;
+  color: #d8db16;
   margin-top: 10px;
   display: block;
 `;

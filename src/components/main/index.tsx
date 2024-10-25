@@ -10,8 +10,11 @@ export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setN
     }));
 
     const clearAllFavorites = () => {
-        setFavorites({});
-        localStorage.removeItem('favorites');
+        const alertClearAllFavorites = window.confirm("Tem certeza que deseja excluir todos os favoritos salvos?")
+        if (alertClearAllFavorites){
+            setFavorites({});
+            localStorage.removeItem('favorites');
+        }
     };
 
 

@@ -4,7 +4,9 @@ import { SearchResult } from "../../utils/interfaces";
 import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./detalhesStyled";
 import { Link, useParams } from "react-router-dom";
 import Voltar from "../../../public/icons/return.png"
+import semFoto from "../../../public/images/semfoto.png"
 import { HeaderCards } from "../header";
+import { Container } from "../../globalStyled";
 
 
 export function DestalhesCard() {
@@ -25,7 +27,7 @@ export function DestalhesCard() {
     }, [plot]);
 
     return (
-        <>
+        <Container>
         <HeaderCards>
             <Link to={"/"}>
             <img src={Voltar} alt="retornar" />
@@ -33,7 +35,7 @@ export function DestalhesCard() {
         </HeaderCards>
         <Main>
             <Figure>
-                <img src={dados?.Poster} alt={dados?.Title} />
+                <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                 <figcaption><h1>{dados?.Title}</h1></figcaption>
             </Figure>
             <Section>
@@ -145,6 +147,6 @@ export function DestalhesCard() {
                 </Table>
             </Section>
         </Main>
-        </>
+        </Container>
     )
 }

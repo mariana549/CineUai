@@ -1,10 +1,13 @@
 import styled, { keyframes } from 'styled-components';
+import { backgroundColor, color10, color50, color60, color70, primaryColor } from '../../utils/constants/constThemes';
 
 export const Main = styled.main`
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: ${backgroundColor}; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px ${color60};
+  /* box-shadow: 0 4px 8px #fafcff58; */
+  border: 1px solid ${color50};
   max-width: 800px;
   margin: auto;
 `;
@@ -16,9 +19,9 @@ const focusImage = keyframes`
   }
   to {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px ${color10};
   }
-`
+`;
 
 export const Figure = styled.figure`
   display: flex;
@@ -39,22 +42,21 @@ export const Figure = styled.figure`
       border-radius: 10px;
       animation: ${focusImage} 2s forwards;
     }
-
   }
-  
+
   figcaption {
     font-size: 18px;
     font-weight: 700;
-    color: #0ca5c0;
+    color: ${primaryColor};  // Cor Principal
     margin-top: 10px;
   }
 `;
 
 export const Section = styled.section`
   margin-bottom: 20px;
-  
+
   a {
-    color: #0ca5c0;
+    color: ${primaryColor};  // Cor Principal
     text-decoration: none;
 
     &:hover {
@@ -70,25 +72,24 @@ export const Table = styled.table`
 
 export const Th = styled.th`
   border-radius: 5px;
-  background-color: #0ca5c0;
+  background-color: ${primaryColor};  // Cor Principal
   color: white;
   padding: 10px;
   text-align: left;
 `;
 
 export const Td = styled.td`
-border-radius: 5px;
-
+  border-radius: 5px;
   border: 1px solid #ccc;
   padding: 10px;
   text-align: end;
 `;
 
 export const Tr = styled.tr`
+  background-color:${color70} ;
   &:nth-child(even) {
     background-color: #f2f2f2;
   }
-
   &:hover {
     background-color: #e6f7ff;
   }
@@ -97,23 +98,20 @@ export const Tr = styled.tr`
 export const Thead = styled.thead`
   ${Tr} {
     background-color: #d4f8ff;
-
     &:nth-child(even) {
-    background-color: #cdf3ff;
-  }
-
+      background-color: #cdf3ff;
+    }
     &:hover {
-      background-color: #53d0e684; 
+      background-color: #53d0e684;
     }
   }
-
-  ${Td}{
+  ${Td} {
     border: 1px solid #05043649;
   }
 `;
 
 export const RatingItem = styled.li`
-  background: #f8f9fa;
+  background: ${color70};  // Cor de Fundo
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
@@ -122,7 +120,7 @@ export const RatingItem = styled.li`
   text-align: center;
 
   strong {
-    color: #0ca5c0;
+    color: ${primaryColor};  // Cor Principal
   }
 `;
 
@@ -131,15 +129,16 @@ export const Label = styled.label`
   gap: 10px;
   margin: 10px 0;
   text-transform: capitalize;
-  align-items: center; 
+  align-items: center;
 `;
 
 export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #0ca5c0;
-`
+  accent-color: ${primaryColor};  // Cor Principal
+`;
+
 export const PlotParagrafro = styled.p`
   font-size: 18px;
   margin-top: 5px;

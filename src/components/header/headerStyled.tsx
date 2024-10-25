@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { colorHeader } from "../../utils/constants/constThemes";
 
 export const Header = styled.header`
   text-align: center;
   padding: 20px;
-  background-color: #0ca5c0;
+  background-color: ${colorHeader};
   color: white;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
