@@ -22,10 +22,8 @@ export const Cards: React.FC<CardsProps> = ({
     localStorage.setItem('searchValue', searchValue);
     localStorage.setItem('numPageAtual', numPageAtual.toString());
   };
-  // console.log(favorites, "fav")
-  // console.log(favoritesList[0].title, "favLi")
+  console.log("cads", searchValue)
 
-  // const listFavoritesFiltered = favorites.map(e => e.title)
   return (
     <>
       {dados?.map((e, i) => (

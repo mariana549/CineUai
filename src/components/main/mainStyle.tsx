@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color10, color20, color30, color40, color50, highlightColor, primaryColor, terciaryColor, textColor } from "../../utils/constants/constThemes";
+import { color10, color20, color30, color40, color50, errorColor, highlightColor, primaryColor, terciaryColor, textColor } from "../../utils/constants/constThemes";
 
 export const Main = styled.main`
   width: 90%;
@@ -65,6 +65,27 @@ export const ClearButton = styled.button`
     background-color: ${highlightColor};
   }
 `;
+
+export const ClearFavorite = styled.button`
+  background-color: transparent; // Cor de Alerta
+  color: ${primaryColor};
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: ${errorColor}; // Cor de Erro ao passar o mouse
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px ${primaryColor};
+  }
+`;
+
 
 export const VerificationMessage = styled.p`
   color: ${color40};
