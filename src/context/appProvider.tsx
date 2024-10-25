@@ -47,13 +47,39 @@ export const AppProvider = ({ children }) => {
         id,
     }));
 
+    const favoritesFromStorage = favoritesList.map((e) => e.title);
+    const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
+
+    // transformar o resultado do filteredFavoritos em string
+    const transformFilterdFavoritos = JSON.stringify(filteredFavoritos);
+
     return (
-        <DataContext.Provider value={{ searchValue: searchValue, numTotalResults: numTotalResults, numPagesTotal: numPagesTotal, erroMinLength: erroMinLength, dados: dados, setSearchValue: setSearchValue, notFound: notFound }}>
-            <FavoritesContext.Provider value={{ favorites: favorites, setFavorites: setFavorites, toggleFavorite: toggleFavorite, favoritesList: favoritesList }}>
-                <PageContext.Provider value={{ numPageAtual: numPageAtual, setNumPageAtual: setNumPageAtual }}>
+        <DataContext.Provider value={{
+            searchValue: searchValue,
+            numTotalResults: numTotalResults, numPagesTotal: numPagesTotal,
+            erroMinLength: erroMinLength,
+            dados: dados,
+            setSearchValue: setSearchValue,
+            notFound: notFound
+        }}>
+            <FavoritesContext.Provider value={{
+                favorites: favorites,
+                setFavorites: setFavorites,
+                toggleFavorite: toggleFavorite,
+                favoritesList: favoritesList,
+                favoritesFromStorage: favoritesFromStorage,
+                filteredFavoritos: filteredFavoritos,
+                transformFilterdFavoritos: transformFilterdFavoritos
+            }}>
+                <PageContext.Provider value={{
+                    numPageAtual: numPageAtual,
+                    setNumPageAtual: setNumPageAtual
+                }}>
                     {children}
                 </PageContext.Provider>
+
             </FavoritesContext.Provider>
+
         </DataContext.Provider>
     );
 };

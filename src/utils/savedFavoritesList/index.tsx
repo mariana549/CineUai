@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 import { clearFavorite } from "../../functions/funcoes";
 import { ClearFavorite, ListItem, StyledDiv } from "./savedFavoritesListStyled";
 import { StyledUL } from "../../globalStyled";
+import { useFavorites } from "../../hooks/useFavorites";
 
-export function SavedFavoritesList ({favoritesList, setFavorites}) {
+export function SavedFavoritesList () {
+    const {favoritesList, setFavorites} = useFavorites()
+
     return (
         <StyledDiv>
         <StyledUL>
           {favoritesList.map((e, i) =>
-            <>
+            <div key={i}>
               <ClearFavorite
                 type="button"
                 onClick={() => clearFavorite(e.title, e.id, setFavorites)}
@@ -17,14 +20,13 @@ export function SavedFavoritesList ({favoritesList, setFavorites}) {
               </ClearFavorite>
               <Link
                 to={`/detalhes/${e.id}/${e.title.replace(/\s+/g, '_')}`}
-                key={i}
                 style={{ textDecoration: 'none' }}
               >
                 <ListItem>
                   {e.title}
                 </ListItem>
               </Link>
-            </>
+            </div>
           )}
         </StyledUL>
       </StyledDiv>

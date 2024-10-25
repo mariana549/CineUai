@@ -8,14 +8,8 @@ import { H2, Main, Section, VerificationMessage } from "./mainStyle";
 
 export function MainCards({ children }) {
     const { dados, numPagesTotal, notFound, searchValue } = useData();
-    const { favorites, toggleFavorite, favoritesList } = useFavorites();
+    const { favoritesFromStorage, transformFilterdFavoritos, filteredFavoritos } = useFavorites();
     const { numPageAtual, setNumPageAtual } = usePage()
-
-    const favoritesFromStorage = favoritesList.map((e) => e.title);
-    const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
-
-    // transformar o resultado do filteredFavoritos em string
-    const transformFilterdFavoritos = JSON.stringify(filteredFavoritos);
 
     return (
         <Main>
@@ -28,10 +22,6 @@ export function MainCards({ children }) {
                     {favoritesFromStorage.length > 0 && dados && dados.Response === "True" ? (
                         <Cards
                             dados={filteredFavoritos || []}
-                            onFavoriteToggle={toggleFavorite}
-                            favorites={favorites}
-                            searchValue={searchValue}
-                            numPageAtual={numPageAtual}
                         />
                     ) : (
                         <VerificationMessage>
@@ -58,10 +48,6 @@ export function MainCards({ children }) {
                         dados && (dados.Response === 'True' ? (
                             <Cards
                                 dados={dados.Search}
-                                onFavoriteToggle={toggleFavorite}
-                                favorites={favorites}
-                                searchValue={searchValue}
-                                numPageAtual={numPageAtual}
                             />
                         ) : (
                             <VerificationMessage>{notFound}</VerificationMessage>

@@ -11,6 +11,7 @@ export const StyledDiv = styled.div`
 `;
 
 export const ListItem = styled.li`
+  display: inline-block;
   padding: 5px;
   color: ${textColor};
   border-bottom: 1px solid ${terciaryColor};
@@ -24,6 +25,7 @@ export const ListItem = styled.li`
 `
 
 export const ClearFavorite = styled.button`
+  display: inline-block;
   background-color: transparent; // Cor de Alerta
   color: ${primaryColor};
   border: none;

@@ -5,19 +5,21 @@ import semFoto from "../../../public/images/semfoto.png";
 import { CardsProps } from '../../utils/interfaces';
 import { CardContent, CardStled, FavoriteButton, FavoritedCardStyled, ImgCardStyled, MoreInfoButton, SpanCardStyled, TituloCardStyled } from './cardsStyled';
 import { Link } from 'react-router-dom';
+import { useFavorites } from '../../hooks/useFavorites';
+import { useData } from '../../hooks/useData';
+import { usePage } from '../../hooks/usePage';
 
 const imgFavorite = {
   notFavorited: notfavorited,
   favorited: favorited,
 };
 
-export const Cards: React.FC<CardsProps> = ({
-  dados,
-  onFavoriteToggle,
-  favorites,
-  searchValue,
-  numPageAtual,
-}) => {
+export const Cards: React.FC<CardsProps> = ({dados}) => {
+  const { searchValue } = useData()
+  const { numPageAtual } = usePage()
+  const { favorites, toggleFavorite } = useFavorites();
+
+
   const handleLinkClick = () => {
     localStorage.setItem('searchValue', searchValue);
     localStorage.setItem('numPageAtual', numPageAtual.toString());
@@ -32,7 +34,7 @@ export const Cards: React.FC<CardsProps> = ({
               <FavoritedCardStyled
                 src={favorites[e.imdbID]?.isFavorite ? imgFavorite.favorited : imgFavorite.notFavorited}
                 alt="favorite"
-                onClick={() => onFavoriteToggle(e.Title, e.imdbID)}
+                onClick={() => toggleFavorite(e.Title, e.imdbID)}
               />
           </FavoriteButton>
           <CardContent>

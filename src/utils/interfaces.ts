@@ -28,10 +28,6 @@ export interface SearchResult {
 
 export interface CardsProps {
     dados: SearchResult[];
-    onFavoriteToggle: (title: string) => void;
-    favorites: Record<string, { title: string; isFavorite: boolean }>;
-    searchValue: string;
-    numPageAtual: number;
 }
 
 export interface ApiData {
@@ -68,6 +64,9 @@ export interface FavoritesContextType {
     setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
     toggleFavorite: (title: string, id: string) => void;
     favoritesList: { title: string; id: string }[];
+    favoritesFromStorage: string[];
+    filteredFavoritos: SearchResult[] | undefined
+    transformFilterdFavoritos: string;
 }
 
 export interface PageContextType {
