@@ -23,13 +23,13 @@ export interface SearchResult {
     imdbRating: string;
     imdbVotes: string;
     Plot: string;
-  }
-  
+}
+
 
 export interface CardsProps {
     dados: SearchResult[];
     onFavoriteToggle: (title: string) => void;
-    favorites:  Record<string, { title: string; isFavorite: boolean }>;
+    favorites: Record<string, { title: string; isFavorite: boolean }>;
     searchValue: string;
     numPageAtual: number;
 }
@@ -52,5 +52,25 @@ export interface InputSearchProps {
     setSearchValue: React.Dispatch<React.SetStateAction<string>>;
     setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
 }
-  
-  
+
+export interface DataContextType {
+    dados: ApiData | null;
+    searchValue: string;
+    setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+    numTotalResults: number;
+    numPagesTotal: number;
+    notFound: string | null;
+    erroMinLength: string;
+}
+
+export interface FavoritesContextType {
+    favorites: Record<string, boolean>;
+    setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
+    toggleFavorite: (title: string, id: string) => void;
+    favoritesList: { title: string; id: string }[];
+}
+
+export interface PageContextType {
+    numPageAtual: number;
+    setNumPageAtual: React.Dispatch<React.SetStateAction<number>>;
+}

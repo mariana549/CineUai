@@ -22,7 +22,6 @@ export const Cards: React.FC<CardsProps> = ({
     localStorage.setItem('searchValue', searchValue);
     localStorage.setItem('numPageAtual', numPageAtual.toString());
   };
-  console.log("cads", searchValue)
 
   return (
     <>
