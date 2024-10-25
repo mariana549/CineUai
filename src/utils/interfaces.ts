@@ -31,9 +31,16 @@ export interface PropsChildren {
     children: ReactNode;
 }  
 
-export interface CardsProps {
-    dados: SearchResult[];
+
+interface FavoriteDados {
+    Title: string;
+    imdbID: string;
 }
+
+export interface FavoriteButtonProps {
+    favoriteDados: FavoriteDados;
+}
+  
 
 export interface ApiData {
     Search: SearchResult[];
@@ -53,7 +60,7 @@ export interface DataContextType {
 }
 
 export interface FavoritesContextType {
-    favorites: Record<string, boolean>;
+    favorites: Record<string, { title: string; isFavorite: boolean } > ;
     setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
     toggleFavorite: (title: string, id: string) => void;
     favoritesList: { title: string; id: string }[];

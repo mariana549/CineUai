@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getData, getNumPagesTotal } from "../functions/funcoes";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
-import { ApiData } from "../utils/interfaces";
+import { ApiData, PropsChildren } from "../utils/interfaces";
 
-export const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }: PropsChildren) => {
     const [dados, setDados] = useState<ApiData | null>(null);
     const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || 'harry potter');
     const [numPageAtual, setNumPageAtual] = useState(parseInt(localStorage.getItem('numPageAtual') || '1', 10));
