@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { ApiData } from "../utils/interfaces";
-import { getData, getNumPagesTotal } from "../functions/funcoes";
-import { Container, SpanErrorInput } from "../globalStyled";
+import { clearAllFavorites, getData, getNumPagesTotal } from "../functions/funcoes";
+import { ClearButton, Container, H4, SpanErrorInput } from "../globalStyled";
 import { MainCards } from "../components/main";
 import { HeaderCards } from "../components/header";
 import { InputSearch } from "../components/search";
+import { SavedFavoritesList } from "../utils/savedFavoritesList";
 
 export function Home() {
   const [dados, setDados] = useState<ApiData | null>(null);
@@ -25,7 +26,7 @@ export function Home() {
       setNotFound: setNotFound,
       setErrorMinLength: setErrorMinLength,
     }
-    
+
     getData(useStateDados);
 
     localStorage.setItem('searchValue', searchValue);
@@ -57,6 +58,11 @@ export function Home() {
   const numTotalResults = dados?.totalResults || 0;
   const numPagesTotal = getNumPagesTotal(numTotalResults);
 
+  const favoritesList = Object.keys(favorites).map((id) => ({
+    title: favorites[id].title,
+    id,
+}));
+
   return (
     <Container>
       <HeaderCards>
@@ -76,8 +82,14 @@ export function Home() {
         numPagesTotal={numPagesTotal}
         notFound={notFound}
         searchValue={searchValue}
-        setFavorites={setFavorites}
-      />
+        favoritesList={favoritesList}
+      >
+        <ClearButton onClick={() => clearAllFavorites(setFavorites)}>
+          Excluir Todos os Favoritos
+        </ClearButton>
+          <H4>Lista completa de favoritos</H4>
+          <SavedFavoritesList favoritesList={favoritesList} setFavorites={setFavorites} />
+      </MainCards>
     </Container>
   )
 }
