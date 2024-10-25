@@ -1,9 +1,15 @@
 import { H4, StyledUL } from "../../globalStyled";
+import { useData } from "../../hooks/useData";
+import { useFavorites } from "../../hooks/useFavorites";
+import { usePage } from "../../hooks/usePage";
 import { PageChangeButton } from "../../utils/pageChangeButtons";
 import { Cards } from "../cards";
 import { H2, Main, Section, VerificationMessage } from "./mainStyle";
 
-export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setNumPageAtual, numPagesTotal, notFound, searchValue, favoritesList, children}) {
+export function MainCards({ children }) {
+    const { dados, numPagesTotal, notFound, searchValue } = useData();
+    const { favorites, toggleFavorite, favoritesList } = useFavorites();
+    const { numPageAtual, setNumPageAtual } = usePage()
 
     const favoritesFromStorage = favoritesList.map((e) => e.title);
     const filteredFavoritos = dados?.Search?.filter(item => favoritesFromStorage.includes(item.Title));
@@ -50,16 +56,13 @@ export function MainCards({ dados, toggleFavorite, favorites, numPageAtual, setN
                 <StyledUL>
                     {
                         dados && (dados.Response === 'True' ? (
-                            // favoritesList.map((item, index) => 
                             <Cards
-                                // key={index} 
                                 dados={dados.Search}
                                 onFavoriteToggle={toggleFavorite}
                                 favorites={favorites}
                                 searchValue={searchValue}
                                 numPageAtual={numPageAtual}
                             />
-                            // )
                         ) : (
                             <VerificationMessage>{notFound}</VerificationMessage>
                         ))
