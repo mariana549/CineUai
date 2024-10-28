@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const FavoriteButton = styled.button`
+  position: absolute;
   top: 10px;
   right: 10px;
   background: rgba(0, 0, 0, 0.5);

@@ -20,7 +20,7 @@ export const Cards = ({ dados }:cardProps) => {
       {dados?.map((e, i) => (
         <CardStled key={i}>
           <ImgCardStyled src={e.Poster === "N/A" ? semFoto : e.Poster} alt={e.Title} />
-          <ButtonFavorite favoriteDados={e} position={"absolute"} /> 
+          <ButtonFavorite favoriteDados={e} /> 
           <CardContent>
             <TituloCardStyled>{e.Title}</TituloCardStyled>
             <SpanCardStyled>{e.Year} {e.Type}</SpanCardStyled>

@@ -47,11 +47,8 @@ interface FavoriteDados {
     imdbID: string;
 }
 
-type Position = "relative" | "absolute";
-
 export interface FavoriteButtonProps {
     favoriteDados: FavoriteDados;
-    position: Position;
 }
 
 

@@ -2,11 +2,11 @@ import styled, { keyframes } from 'styled-components';
 import { backgroundColor, color10, color50, color60, color70, primaryColor } from '../../utils/constants/constThemes';
 
 export const Main = styled.main`
+  position: relative;
   padding: 20px;
   background-color: ${backgroundColor}; 
   border-radius: 10px;
   box-shadow: 0 4px 8px ${color60};
-  /* box-shadow: 0 4px 8px #fafcff58; */
   border: 1px solid ${color50};
   max-width: 800px;
   margin: auto;

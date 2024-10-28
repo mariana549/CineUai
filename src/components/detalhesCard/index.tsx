@@ -30,7 +30,7 @@ export function DestalhesCard() {
     const favoriteDados = {
         Title: title?.replace(/\s+/g, ' '),
         imdbID: id
-    }
+    }    
 
     return (
         <Container>
@@ -40,7 +40,7 @@ export function DestalhesCard() {
                 </Link>
             </HeaderCards>
             <Main>
-                <ButtonFavorite favoriteDados={favoriteDados} position={"relative"} />
+                <ButtonFavorite favoriteDados={favoriteDados}  />
                 <Figure>
                     <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                     <figcaption><h1>{dados?.Title}</h1></figcaption>
