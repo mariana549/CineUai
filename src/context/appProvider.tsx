@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData, getNumPagesTotal } from "../functions/funcoes";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
-import { ApiData, PropsChildren } from "../utils/interfaces";
+import { ApiData, Favorites, PropsChildren } from "../utils/interfaces";
 
 export const AppProvider = ({ children }: PropsChildren) => {
     const [dados, setDados] = useState<ApiData | null>(null);
@@ -32,8 +32,8 @@ export const AppProvider = ({ children }: PropsChildren) => {
     }, [favorites]);
 
     const toggleFavorite = (title: string, id: string) => {
-        setFavorites((prevFavorites) => {
-            const updatedFavorites = { ...prevFavorites, [id]: { title, isFavorite: !prevFavorites[id]?.isFavorite || false } };
+        setFavorites((prevFavorites: Favorites) => {
+            const updatedFavorites: Favorites = { ...prevFavorites, [id]: { title, isFavorite: !prevFavorites[id]?.isFavorite || false } };
             if (!updatedFavorites[id].isFavorite) delete updatedFavorites[id];
             localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
             return updatedFavorites;

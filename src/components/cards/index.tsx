@@ -4,8 +4,9 @@ import { useData } from '../../hooks/useData';
 import { usePage } from '../../hooks/usePage';
 import semFoto from "../../../public/images/semfoto.png";
 import { ButtonFavorite } from '../buttonFavorite/buttonfavorite';
+import { cardProps } from '../../utils/interfaces';
 
-export const Cards = ({ dados }) => {
+export const Cards = ({ dados }:cardProps) => {
   const { searchValue } = useData();
   const { numPageAtual } = usePage();
 
@@ -19,7 +20,7 @@ export const Cards = ({ dados }) => {
       {dados?.map((e, i) => (
         <CardStled key={i}>
           <ImgCardStyled src={e.Poster === "N/A" ? semFoto : e.Poster} alt={e.Title} />
-          <ButtonFavorite favoriteDados={e} /> 
+          <ButtonFavorite favoriteDados={e} position={"absolute"} /> 
           <CardContent>
             <TituloCardStyled>{e.Title}</TituloCardStyled>
             <SpanCardStyled>{e.Year} {e.Type}</SpanCardStyled>

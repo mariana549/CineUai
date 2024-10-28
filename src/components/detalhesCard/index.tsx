@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { getDetails } from "../../functions/funcoes";
 import { SearchResult } from "../../utils/interfaces";
 import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./detalhesStyled";
@@ -7,15 +7,16 @@ import Voltar from "../../../public/icons/return.png"
 import semFoto from "../../../public/images/semfoto.png"
 import { HeaderCards } from "../header";
 import { Container } from "../../globalStyled";
+import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";
 
 
 export function DestalhesCard() {
     const [dados, setDados] = useState<SearchResult>();
-    const { id } = useParams();
+    const { id, title } = useParams();
     const [plot, setPlot] = useState("short");
 
-    const plotFullCheck = (e) => {
-        if (e.target.checked == true) {
+    const plotFullCheck = (element: ChangeEvent<HTMLInputElement>) => {
+        if (element.target.checked == true) {
             setPlot("full");
         } else {
             setPlot("short");
@@ -26,6 +27,11 @@ export function DestalhesCard() {
         getDetails(setDados, id, plot);
     }, [plot]);
 
+    const favoriteDados = {
+        Title: title?.replace(/\s+/g, ' '),
+        imdbID: id
+    }
+
     return (
         <Container>
         <HeaderCards>
@@ -34,6 +40,7 @@ export function DestalhesCard() {
             </Link>
         </HeaderCards>
         <Main>
+            <ButtonFavorite favoriteDados={favoriteDados} position={"relative"} />
             <Figure>
                 <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                 <figcaption><h1>{dados?.Title}</h1></figcaption>
