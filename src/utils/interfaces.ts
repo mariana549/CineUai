@@ -43,13 +43,15 @@ interface Favorite {
 export type Favorites = Record<string, Favorite>;
 
 interface FavoriteDados {
-    Title: string | undefined;
-    imdbID: string | undefined;
+    Title: string;
+    imdbID: string;
 }
+
+type Position = "relative" | "absolute";
 
 export interface FavoriteButtonProps {
     favoriteDados: FavoriteDados;
-    position: string | undefined;
+    position: Position;
 }
 
 
