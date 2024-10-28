@@ -9,6 +9,8 @@ export const AppProvider = ({ children }: PropsChildren) => {
     const [numPageAtual, setNumPageAtual] = useState(parseInt(localStorage.getItem('numPageAtual') || '1', 10));
     const [erroMinLength, setErrorMinLength] = useState('');
     const [notFound, setNotFound] = useState<string | null>(null);
+    const [type, setType] = useState("");
+    const [year, setYear] = useState<number>();
     const [favorites, setFavorites] = useState(() => {
         const savedFavorites = localStorage.getItem('favorites');
         return savedFavorites ? JSON.parse(savedFavorites) : {};
@@ -18,14 +20,17 @@ export const AppProvider = ({ children }: PropsChildren) => {
         const useStateDados = {
             searchValue,
             numPageAtual,
+            type,
+            year,
             setDados,
             setNotFound,
             setErrorMinLength,
         };
         getData(useStateDados);
+
         localStorage.setItem('searchValue', searchValue);
         localStorage.setItem('numPageAtual', numPageAtual.toString());
-    }, [searchValue, numPageAtual]);
+    }, [searchValue, numPageAtual, type, year]);
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -61,7 +66,10 @@ export const AppProvider = ({ children }: PropsChildren) => {
             erroMinLength: erroMinLength,
             dados: dados,
             setSearchValue: setSearchValue,
-            notFound: notFound
+            notFound: notFound,
+            year: year,
+            setType: setType,
+            setYear: setYear,
         }}>
             <FavoritesContext.Provider value={{
                 favorites: favorites,

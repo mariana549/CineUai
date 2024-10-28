@@ -1,9 +1,10 @@
+import { ChangeEvent } from "react";
 import { getApi_Dados, getApi_Search } from "../services/requestApi";
 
 export async function getData(useStateDados) {
   if (useStateDados.searchValue.length >= 2) {
     try {
-      const data = await getApi_Search(useStateDados.searchValue, useStateDados.numPageAtual);
+      const data = await getApi_Search(useStateDados.searchValue, useStateDados.numPageAtual, useStateDados.type, useStateDados.year);
       useStateDados.setDados(data);
       if (data.Response === 'False') {
         useStateDados.setNotFound(data.Error);
@@ -26,7 +27,6 @@ export async function getDetails(setDados, id, plot) {
     console.error(error)
   }
 }
-
 
 export const getNumPagesTotal = (numTotal: number): number => {
   const pagesTotal = Math.ceil(numTotal / 10); // Divide o total de resultados pelo número de resultados por página e arredonda para cima
@@ -69,3 +69,18 @@ export const clearFavorite = (name, id, setFavorites) => {
     });
   }
 };
+
+export const getTypes = (type: ChangeEvent<HTMLSelectElement>, setType) => {
+  if (type.target.value !== "") {
+    setType(type.target.value)
+  } else {
+   setType("")
+  }
+}
+
+export const getYear = (year: React.ChangeEvent<HTMLInputElement>, setYear) => {
+   if(year.target.value.length > 4){
+       year.target.value = year.target.value.slice(0,4)
+   }
+   setYear(year.target.value)
+}

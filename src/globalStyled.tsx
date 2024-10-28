@@ -52,7 +52,6 @@ export const ClearButton = styled.button`
   }
 `;
 
-
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;

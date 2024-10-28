@@ -32,7 +32,7 @@ export function DestalhesCard() {
         Title: title?.replace(/\s+/g, ' '),
         imdbID: id
     }
-
+ 
     return (
         <Container>
             <HeaderCards>
@@ -131,7 +131,7 @@ export function DestalhesCard() {
                             </Tr>
                             <Tr>
                                 <Th>Ratings</Th>
-                                <Td>
+                                {/* <Td>
                                     <ul>
                                         {dados?.Ratings.map((e, i) => (
                                             <RatingItem key={i}>
@@ -140,7 +140,7 @@ export function DestalhesCard() {
                                             </RatingItem>
                                         ))}
                                     </ul>
-                                </Td>
+                                </Td> */}
                             </Tr>
                             <Tr>
                                 <Th>Enredo</Th>

@@ -1,4 +1,4 @@
-import { Header, Logo, Pheader } from "./headerStyled";
+import { Header, Logo } from "./headerStyled";
 import { Box } from "../../globalStyled";
 
 import { PropsChildren } from "../../utils/interfaces";
