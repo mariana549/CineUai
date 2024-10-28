@@ -8,6 +8,7 @@ import { useFavorites } from "../hooks/useFavorites";
 import { SavedFavoritesList } from "../utils/savedFavoritesList";
 
 import { ClearButton, Container, H4, SpanErrorInput } from "../globalStyled";
+import { Pheader } from "../components/header/headerStyled";
 
 export function Home() {
   const { searchValue, erroMinLength } = useData();
@@ -17,6 +18,7 @@ export function Home() {
     <Container>
 
       <HeaderCards>
+      <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
         <InputSearch />
         <SpanErrorInput>
           {searchValue && searchValue.length <= 2 ? erroMinLength : ""}

@@ -8,11 +8,12 @@ import semFoto from "../../../public/images/semfoto.png"
 import { HeaderCards } from "../header";
 import { Container } from "../../globalStyled";
 import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";
+import { Pheader } from "../header/headerStyled";
 
 
 export function DestalhesCard() {
     const [dados, setDados] = useState<SearchResult>();
-    const { id = "", title = "" } = useParams<{ id: string; title: string }>(); 
+    const { type = "", id = "", title = "" } = useParams<{ type: string, id: string; title: string }>();
     const [plot, setPlot] = useState("short");
 
     const plotFullCheck = (element: ChangeEvent<HTMLInputElement>) => {
@@ -30,17 +31,18 @@ export function DestalhesCard() {
     const favoriteDados = {
         Title: title?.replace(/\s+/g, ' '),
         imdbID: id
-    }    
+    }
 
     return (
         <Container>
             <HeaderCards>
+                <Pheader>Your {type} is here.</Pheader>
+            </HeaderCards>
+            <Main>
                 <Link to={"/"}>
                     <img src={Voltar} alt="retornar" />
                 </Link>
-            </HeaderCards>
-            <Main>
-                <ButtonFavorite favoriteDados={favoriteDados}  />
+                <ButtonFavorite favoriteDados={favoriteDados} />
                 <Figure>
                     <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                     <figcaption><h1>{dados?.Title}</h1></figcaption>

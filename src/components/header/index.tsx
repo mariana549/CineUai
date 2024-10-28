@@ -13,7 +13,6 @@ export function HeaderCards({ children }: PropsChildren){
         <img src={logo} alt="logo" style={{ width: "170px" }} />
         <Logo>Cine Uai</Logo>
       </Box>
-      <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
       {children} 
     </Header>
   )
