@@ -1,15 +1,15 @@
+import { Link, useParams } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import { getDetails } from "../../functions/funcoes";
 import { SearchResult } from "../../utils/interfaces";
-import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./detalhesStyled";
-import { Link, useParams } from "react-router-dom";
-import Voltar from "../../../public/icons/return.png"
-import semFoto from "../../../public/images/semfoto.png"
 import { HeaderCards } from "../header";
-import { Container } from "../../globalStyled";
 import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";
+import { Container } from "../../globalStyled";
 import { Pheader } from "../header/headerStyled";
+import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./detalhesStyled";
 
+import Voltar from "../../assets/icons/return.png"
+import semFoto from "../../assets/images/semfoto.png"
 
 export function DestalhesCard() {
     const [dados, setDados] = useState<SearchResult>();

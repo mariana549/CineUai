@@ -1,8 +1,8 @@
 import { useFavorites } from "../../hooks/useFavorites";
 import { FavoriteButton, FavoritedCardStyled } from "./buttonFavoriteStyled";
 
-import favorited from "../../../public/icons/favorited.png";
-import notfavorited from "../../../public/icons/notFavorited.png";
+import favorited from "../../assets/icons/favorited.png";
+import notfavorited from "../../assets/icons/notFavorited.png";
 import { FavoriteButtonProps } from "../../utils/interfaces";
 
 const imgFavorite = {

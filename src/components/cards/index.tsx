@@ -2,9 +2,10 @@ import { CardContent, CardStled, ImgCardStyled, MoreInfoButton, SpanCardStyled, 
 import { Link } from 'react-router-dom';
 import { useData } from '../../hooks/useData';
 import { usePage } from '../../hooks/usePage';
-import semFoto from "../../../public/images/semfoto.png";
 import { ButtonFavorite } from '../buttonFavorite/buttonfavorite';
 import { cardProps } from '../../utils/interfaces';
+
+import semFoto from "../../assets/images/semfoto.png";
 
 export const Cards = ({ dados }:cardProps) => {
   const { searchValue } = useData();

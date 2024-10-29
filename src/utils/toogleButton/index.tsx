@@ -1,6 +1,6 @@
 import { ToggleButton } from "./toogleButton";
-import sol from "../../../public/icons/sol.png"
-import lua from "../../../public/icons/lua.png"
+import sol from "../../assets/icons/sol.png"
+import lua from "../../assets/icons/lua.png"
 import { ThemeTypes } from "../interfaces";
 
 export function TogglerButton({ setTheme, theme }: ThemeTypes) {

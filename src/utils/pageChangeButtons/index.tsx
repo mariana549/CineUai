@@ -5,8 +5,8 @@ import { useData } from "../../hooks/useData";
 import { ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
 import { Box } from "../../globalStyled";
 
-import leftArrow from '../../../public/icons/leftArrow.png';
-import rightArrow from '../../../public/icons/rigthArrow.png';
+import leftArrow from '../../assets/icons/leftArrow.png';
+import rightArrow from '../../assets/icons/rigthArrow.png';
 
 export function PageChangeButton() {
     const { numPageAtual, setNumPageAtual } = usePage()

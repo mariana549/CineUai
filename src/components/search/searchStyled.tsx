@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import apagar from "../../../public/icons/apagar.png"
+import apagar from "../../assets/icons/apagar.png"
 
 export const SearchInput = styled.input`
   width: 700px;

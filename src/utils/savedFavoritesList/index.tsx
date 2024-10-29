@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { clearFavorite } from "../../functions/funcoes";
+import { useFavorites } from "../../hooks/useFavorites";
 import { ClearFavorite, ListItem, StyledDiv } from "./savedFavoritesListStyled";
 import { StyledUL } from "../../globalStyled";
-import { useFavorites } from "../../hooks/useFavorites";
 
 export function SavedFavoritesList () {
     const {favoritesList, setFavorites} = useFavorites()

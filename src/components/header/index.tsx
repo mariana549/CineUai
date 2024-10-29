@@ -3,7 +3,7 @@ import { Box } from "../../globalStyled";
 
 import { PropsChildren } from "../../utils/interfaces";
 
-import logo from "../../../public/images/logo.png"
+import logo from "../../assets/images/logo.png"
 
 export function HeaderCards({ children }: PropsChildren){
 

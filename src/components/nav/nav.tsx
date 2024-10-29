@@ -1,7 +1,7 @@
 import { getTypes, getYear } from "../../functions/funcoes";
-import { Box, SpanErrorInput } from "../../globalStyled";
 import { useData } from "../../hooks/useData";
 import { InputSearch } from "../search";
+import { Box, SpanErrorInput } from "../../globalStyled";
 import { StyledInput, StyledOption, StyledSelect } from "./navStyled";
 
 export function Nav() {
