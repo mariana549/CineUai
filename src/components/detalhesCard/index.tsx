@@ -23,7 +23,7 @@ export function DestalhesCard() {
             setPlot("short");
         }
     };
-
+ 
     useEffect(() => {
         getDetails(setDados, id, plot);
     }, [plot, id]);
@@ -32,7 +32,7 @@ export function DestalhesCard() {
         Title: title?.replace(/\s+/g, ' '),
         imdbID: id
     }
- 
+
     return (
         <Container>
             <HeaderCards>
@@ -51,50 +51,49 @@ export function DestalhesCard() {
                     <Table>
                         <Thead>
                             <Tr>
-                                <Th>Atores</Th>
+                                <Th>Actors</Th>
                                 <Td>{dados?.Actors}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Diretor</Th>
+                                <Th>Director</Th>
                                 <Td>{dados?.Director}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Lançado</Th>
+                                <Th>Released</Th>
                                 <Td>{dados?.Released}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Gênero</Th>
+                                <Th>Genre</Th>
                                 <Td>{dados?.Genre}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Classificação IMDb</Th>
+                                <Th>IMDb Rating</Th>
                                 <Td>{dados?.imdbRating}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Bilheteria</Th>
+                                <Th>Box Office</Th>
                                 <Td>{dados?.BoxOffice}</Td>
                             </Tr>
                             <Tr>
-                                <Th>País</Th>
+                                <Th>Country</Th>
                                 <Td>{dados?.Country}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Duração</Th>
+                                <Th>Runtime</Th>
                                 <Td>{dados?.Runtime}</Td>
                             </Tr>
                         </Thead>
                         <tbody>
                             <Tr>
-                                <Th>Prêmios</Th>
+                                <Th>Awards</Th>
                                 <Td>{dados?.Awards}</Td>
                             </Tr>
                             <Tr>
                                 <Th>DVD</Th>
                                 <Td>{dados?.DVD}</Td>
                             </Tr>
-
                             <Tr>
-                                <Th>Linguagem</Th>
+                                <Th>Language</Th>
                                 <Td>{dados?.Language}</Td>
                             </Tr>
                             <Tr>
@@ -102,23 +101,23 @@ export function DestalhesCard() {
                                 <Td>{dados?.Metascore}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Produção</Th>
+                                <Th>Production</Th>
                                 <Td>{dados?.Production}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Classificação</Th>
+                                <Th>Rating</Th>
                                 <Td>{dados?.Rated}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Tipo</Th>
+                                <Th>Type</Th>
                                 <Td>{dados?.Type}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Site</Th>
+                                <Th>Website</Th>
                                 <Td><a href={dados?.Website} target="_blank" rel="noopener noreferrer">{dados?.Website}</a></Td>
                             </Tr>
                             <Tr>
-                                <Th>Escritor</Th>
+                                <Th>Writer</Th>
                                 <Td>{dados?.Writer}</Td>
                             </Tr>
                             <Tr>
@@ -126,12 +125,12 @@ export function DestalhesCard() {
                                 <Td>{dados?.imdbID}</Td>
                             </Tr>
                             <Tr>
-                                <Th>Votos no IMDb</Th>
+                                <Th>IMDb Votes</Th>
                                 <Td>{dados?.imdbVotes}</Td>
                             </Tr>
                             <Tr>
                                 <Th>Ratings</Th>
-                                {/* <Td>
+                                <Td>
                                     <ul>
                                         {dados?.Ratings.map((e, i) => (
                                             <RatingItem key={i}>
@@ -140,10 +139,10 @@ export function DestalhesCard() {
                                             </RatingItem>
                                         ))}
                                     </ul>
-                                </Td> */}
+                                </Td>
                             </Tr>
                             <Tr>
-                                <Th>Enredo</Th>
+                                <Th>Plot</Th>
                                 <Td>
                                     <Label htmlFor="plotFull">
                                         {plot}
