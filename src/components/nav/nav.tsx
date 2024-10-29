@@ -7,6 +7,9 @@ import { StyledInput, StyledOption, StyledSelect } from "./navStyled";
 export function Nav() {
     const { searchValue, erroMinLength, notFound, year, setYear, setType } = useData();
 
+    const isValidYear = year && (typeof year === "number");
+    const validationMessage = isValidYear && year <= 1889 ? "Please enter a valid year." : "";
+
     return (
         <nav>
             <InputSearch />
@@ -37,9 +40,7 @@ export function Nav() {
             <SpanErrorInput>
                 {year ? notFound : ""}
             </SpanErrorInput>
-            <SpanErrorInput>
-                {year && year <= 1889 ? `Please enter a valid year.` : ""}
-            </SpanErrorInput>
+            <SpanErrorInput>{validationMessage}</SpanErrorInput>
         </nav>
     )
 }
