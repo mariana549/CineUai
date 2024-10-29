@@ -6,6 +6,7 @@ import { Container } from "../globalStyled";
 import { HeaderCards } from "../components/header";
 import { Pheader } from "../components/header/headerStyled";
 import { MainDestalhesCard } from "../components/detalhesCard";
+import { Footer } from "../components/footer";
 
 export const CardDetailsDados = () => {
   const [dados, setDados] = useState<SearchResult>();
@@ -34,12 +35,15 @@ export const CardDetailsDados = () => {
       <HeaderCards>
         <Pheader>Your {type} is here.</Pheader>
       </HeaderCards>
+
       <MainDestalhesCard
         favoriteDados={favoriteDados}
         plotFullCheck={plotFullCheck}
         dados={dados}
         plot={plot}
       />
+      
+      <Footer />
     </Container>
   )
 } 

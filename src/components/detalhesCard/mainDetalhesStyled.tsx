@@ -47,7 +47,7 @@ export const Figure = styled.figure`
   figcaption {
     font-size: 18px;
     font-weight: 700;
-    color: ${primaryColor};  // Cor Principal
+    color: ${primaryColor}; 
     margin-top: 10px;
   }
 `;
@@ -56,7 +56,7 @@ export const Section = styled.section`
   margin-bottom: 20px;
 
   a {
-    color: ${primaryColor};  // Cor Principal
+    color: ${primaryColor};  
     text-decoration: none;
 
     &:hover {
@@ -72,7 +72,7 @@ export const Table = styled.table`
 
 export const Th = styled.th`
   border-radius: 5px;
-  background-color: ${primaryColor};  // Cor Principal
+  background-color: ${primaryColor};  
   color: white;
   padding: 10px;
   text-align: left;
@@ -111,7 +111,7 @@ export const Thead = styled.thead`
 `;
 
 export const RatingItem = styled.li`
-  background: ${color70};  // Cor de Fundo
+  background: ${color70}; 
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
@@ -120,7 +120,7 @@ export const RatingItem = styled.li`
   text-align: center;
 
   strong {
-    color: ${primaryColor};  // Cor Principal
+    color: ${primaryColor};  
   }
 `;
 
@@ -136,7 +136,7 @@ export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: ${primaryColor};  // Cor Principal
+  accent-color: ${primaryColor};  
 `;
 
 export const PlotParagrafro = styled.p`

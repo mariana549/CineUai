@@ -8,6 +8,7 @@ import { SavedFavoritesList } from "../components/savedFavoritesList";
 import { ClearButton, Container, H4 } from "../globalStyled";
 import { Pheader } from "../components/header/headerStyled";
 import { Nav } from "../components/nav/nav";
+import { Footer } from "../components/footer";
 
 export function Home() {
   const { setFavorites } = useFavorites();
@@ -28,6 +29,7 @@ export function Home() {
         <SavedFavoritesList />
       </MainCards>
 
+      <Footer />
     </Container>
   )
 }

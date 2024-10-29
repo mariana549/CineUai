@@ -28,7 +28,7 @@ export interface SearchResult {
 }
 
 export interface PropsChildren {
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export interface cardProps {
