@@ -1,8 +1,8 @@
 import { H4, StyledUL } from "../../globalStyled";
 import { useData } from "../../hooks/useData";
 import { useFavorites } from "../../hooks/useFavorites";
-import { PropsChildren } from "../../utils/interfaces";
-import { PageChangeButton } from "../../utils/pageChangeButtons";
+import { PropsChildren } from "../../utils/types/interfaces";
+import { PageChangeButton } from "../pageChangeButtons";
 import { Cards } from "../cards";
 import { H2, Main, Section, VerificationMessage } from "./mainStyle";
 

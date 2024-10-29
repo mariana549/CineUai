@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getData } from "../functions/api/getData";
 import { getNumPagesTotal } from "../functions/api/pagination";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
-import { ApiData, Favorites, PropsChildren, UseStateDados } from "../utils/interfaces";
+import { ApiData, PropsChildren, UseStateDados } from "../utils/types/interfaces";
+import { Favorites } from "../utils/types/types";
 
 export const AppProvider = ({ children }: PropsChildren) => {
     const [dados, setDados] = useState<ApiData | null>(null);

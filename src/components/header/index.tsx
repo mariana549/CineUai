@@ -1,7 +1,7 @@
 import { Header, Logo } from "./headerStyled";
 import { Box } from "../../globalStyled";
 
-import { PropsChildren } from "../../utils/interfaces";
+import { PropsChildren } from "../../utils/types/interfaces";
 
 import logo from "../../assets/images/logo.png"
 

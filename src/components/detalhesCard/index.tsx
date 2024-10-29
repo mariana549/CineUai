@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import { getDetails } from "../../functions/api/getDetails";
-import { SearchResult } from "../../utils/interfaces";
+import { SearchResult } from "../../utils/types/interfaces";
 import { HeaderCards } from "../header";
 import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";
 import { Container } from "../../globalStyled";

@@ -1,5 +1,5 @@
 import { getApi_Search } from "../../services/requestApi";
-import { UseStateDados } from "../../utils/interfaces";
+import { UseStateDados } from "../../utils/types/interfaces";
 
 export async function getData(useStateDados: UseStateDados) {  
     if (useStateDados.searchValue.length >= 2) {
