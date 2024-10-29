@@ -14,7 +14,7 @@ export function Home() {
 
   return (
     <Container>
-
+ 
       <HeaderCards>
         <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
         <Nav/>

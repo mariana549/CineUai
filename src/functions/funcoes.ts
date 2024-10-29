@@ -1,11 +1,18 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { getApi_Dados, getApi_Search } from "../services/requestApi";
+import { ApiData, UseStateDados } from "../utils/interfaces";
 
-export async function getData(useStateDados) {
+export async function getData(useStateDados: UseStateDados) {  
   if (useStateDados.searchValue.length >= 2) {
     try {
-      const data = await getApi_Search(useStateDados.searchValue, useStateDados.numPageAtual, useStateDados.type, useStateDados.year);
+      const data = await getApi_Search(
+        useStateDados.searchValue, 
+        useStateDados.numPageAtual, 
+        useStateDados.type, 
+        useStateDados.year 
+      );
       useStateDados.setDados(data);
+
       if (data.Response === 'False') {
         useStateDados.setNotFound(data.Error);
       } else {
@@ -19,7 +26,7 @@ export async function getData(useStateDados) {
   }
 }
 
-export async function getDetails(setDados, id, plot) {
+export async function getDetails(setDados: Dispatch<SetStateAction<ApiData | null>>, id: string, plot: string) {
   try {
     const data = await getApi_Dados(id, plot);
     setDados(data)
@@ -50,7 +57,7 @@ export const handleSearch = (event: React.ChangeEvent<HTMLInputElement>, setSear
   setSearchValue(event.target.value);
 };
 
-export const clearAllFavorites = (setFavorites) => {
+export const clearAllFavorites = (setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
   const alertClearAllFavorites = window.confirm("Tem certeza que deseja excluir todos os favoritos salvos?")
   if (alertClearAllFavorites) {
     setFavorites({});
@@ -58,7 +65,7 @@ export const clearAllFavorites = (setFavorites) => {
   }
 };
 
-export const clearFavorite = (name, id, setFavorites) => {
+export const clearFavorite = (name: string, id: string, setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
   const alertClearFavorite = window.confirm(`Tem certeza que deseja excluir ${name}, dos favoritos salvos?`)
   if (alertClearFavorite) {
     setFavorites((prevFavorites) => {
@@ -70,7 +77,7 @@ export const clearFavorite = (name, id, setFavorites) => {
   }
 };
 
-export const getTypes = (type: ChangeEvent<HTMLSelectElement>, setType) => {
+export const getTypes = (type: ChangeEvent<HTMLSelectElement>, setType: React.Dispatch<React.SetStateAction<string>>) => {
   if (type.target.value !== "") {
     setType(type.target.value)
   } else {
@@ -78,7 +85,7 @@ export const getTypes = (type: ChangeEvent<HTMLSelectElement>, setType) => {
   }
 }
 
-export const getYear = (year: React.ChangeEvent<HTMLInputElement>, setYear) => {
+export const getYear = (year: React.ChangeEvent<HTMLInputElement>, setYear: React.Dispatch<React.SetStateAction<string | undefined>>) => {
    if(year.target.value.length > 4){
        year.target.value = year.target.value.slice(0,4)
    }

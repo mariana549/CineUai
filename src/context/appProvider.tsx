@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData, getNumPagesTotal } from "../functions/funcoes";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
-import { ApiData, Favorites, PropsChildren } from "../utils/interfaces";
+import { ApiData, Favorites, PropsChildren, UseStateDados } from "../utils/interfaces";
 
 export const AppProvider = ({ children }: PropsChildren) => {
     const [dados, setDados] = useState<ApiData | null>(null);
@@ -17,15 +17,16 @@ export const AppProvider = ({ children }: PropsChildren) => {
     });
 
     useEffect(() => {
-        const useStateDados = {
-            searchValue,
-            numPageAtual,
-            type,
-            year,
-            setDados,
-            setNotFound,
-            setErrorMinLength,
-        };
+        const useStateDados: UseStateDados = {
+            searchValue: searchValue,
+            numPageAtual: numPageAtual,
+            type: type ?? "",
+            year: year, 
+            setDados: setDados,
+            setNotFound: setNotFound,
+            setErrorMinLength: setErrorMinLength,
+          };
+          
         getData(useStateDados);
 
         localStorage.setItem('searchValue', searchValue);

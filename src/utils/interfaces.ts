@@ -59,6 +59,16 @@ export interface ApiData {
     totalResults: number | undefined;
 }
 
+export interface UseStateDados {
+    searchValue: string;
+    numPageAtual: number; 
+    type?: string;
+    year?: number | undefined;
+    setDados: React.Dispatch<React.SetStateAction<ApiData | null>>;
+    setNotFound: React.Dispatch<React.SetStateAction<string | null>>;
+    setErrorMinLength: React.Dispatch<React.SetStateAction<string>>;
+  }
+
 export interface DataContextType {
     dados: ApiData | null;
     searchValue: string;
