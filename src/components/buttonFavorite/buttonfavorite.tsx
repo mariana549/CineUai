@@ -11,11 +11,11 @@ const imgFavorite = {
 };
 
 
-export function ButtonFavorite ({favoriteDados}: FavoriteButtonProps) {
+export function ButtonFavorite ({favoriteDados, bg}: FavoriteButtonProps) {
     const { favorites, toggleFavorite } = useFavorites();
 
     return (
-        <FavoriteButton >
+        <FavoriteButton style={{background: `${bg}`}}>
         <FavoritedCardStyled
           src={favorites[favoriteDados.imdbID]?.isFavorite ? imgFavorite.favorited : imgFavorite.notFavorited}
           alt="favorite"

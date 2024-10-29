@@ -42,7 +42,7 @@ export function DestalhesCard() {
                 <Link to={"/"}>
                     <img src={Voltar} alt="retornar" />
                 </Link>
-                <ButtonFavorite favoriteDados={favoriteDados} />
+                <ButtonFavorite favoriteDados={favoriteDados} bg={"transparente"}/>
                 <Figure>
                     <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                     <figcaption><h1>{dados?.Title}</h1></figcaption>
