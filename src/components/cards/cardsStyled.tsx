@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 export const CardStled = styled.li`
   width: 300px;
-  /* width: fit-content; */
   height: 400px;
-  /* border: 1px solid #0ca5c0; */
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
