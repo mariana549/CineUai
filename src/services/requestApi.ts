@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BASE_URL } from "../utils/variaveis"
+import { BASE_URL } from "../utils/config/variaveis"
 
 const CHAVE_API_KEY = import.meta.env.VITE_CHAVEAPI
 

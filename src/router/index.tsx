@@ -3,8 +3,8 @@ import { Home } from "../page/home.tsx"
 import { DestalhesCard } from "../components/detalhesCard/index.tsx"
 import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
-import { Themes } from "../utils/themes.ts"
-import { TogglerButton } from "../utils/toogleButton/index.tsx"
+import { Themes } from "../utils/config/themes.ts"
+import { TogglerButton } from "../components/toogleButton/index.tsx"
 import { AppProvider } from "../context/appProvider.tsx"
 
 export function AppRoutes() {

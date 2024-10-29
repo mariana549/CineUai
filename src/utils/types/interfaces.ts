@@ -35,12 +35,11 @@ export interface cardProps {
     dados: SearchResult[];
 }
 
-interface Favorite {
+export interface Favorite {
     title: string;
     isFavorite: boolean;
 }
 
-export type Favorites = Record<string, Favorite>;
 
 interface FavoriteDados {
     Title: string;
@@ -101,4 +100,27 @@ export interface PageContextType {
 export interface ThemeTypes {
     theme: string,
     setTheme: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface Theme { 
+    backgroundColor: string; 
+    primaryColor: string; 
+    secondaryColor: string; 
+    highlightColor: string; 
+    textColor: string; 
+    errorColor: string; 
+    terciaryColor: string; 
+    color10: string; 
+    color20: string; 
+    color30: string; 
+    color40: string; 
+    color50: string; 
+    color60: string; 
+    color70: string;
+}
+
+export interface ThemeProps { 
+    theme: { 
+        Theme: Theme; 
+    };
 }
