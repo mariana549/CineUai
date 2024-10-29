@@ -1,6 +1,4 @@
-import { Theme } from "../types/interfaces";
-
-export const Themes: { [key: string]: Theme } = {
+export const Themes = {
     "light": {
         primaryColor: '#0ca5c0',
         highlightColor: '#0e88a0',     
