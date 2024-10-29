@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 
 export interface SearchResult {
     Poster: string;
@@ -100,4 +100,11 @@ export interface PageContextType {
 export interface ThemeTypes {
     theme: string,
     setTheme: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface DetailsCard {
+    plot: string,
+    dados: SearchResult | undefined,
+    favoriteDados: FavoriteDados,
+    plotFullCheck: (element: ChangeEvent<HTMLInputElement>) => void
 }
