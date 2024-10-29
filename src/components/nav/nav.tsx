@@ -19,7 +19,7 @@ export function Nav() {
                     name="types"
                     onChange={type => getTypes(type, setType)}
                 >
-                    <StyledOption value="">todos</StyledOption>
+                    <StyledOption value="">all</StyledOption>
                     <StyledOption value="movie">movie</StyledOption>
                     <StyledOption value="series">series</StyledOption>
                     <StyledOption value="game">game</StyledOption>

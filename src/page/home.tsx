@@ -16,15 +16,15 @@ export function Home() {
     <Container>
  
       <HeaderCards>
-        <Pheader>Descubra sua nova série ou filme preferido aqui</Pheader>
+        <Pheader>Enter endless entertainment! Discover all about your movies and series now.</Pheader>
         <Nav/>
       </HeaderCards>
 
       <MainCards>
         <ClearButton onClick={() => clearAllFavorites(setFavorites)}>
-          Excluir Todos os Favoritos
+        Delete All Favorites
         </ClearButton>
-        <H4>Lista completa de favoritos</H4>
+        <H4>Full list of favorites</H4>
         <SavedFavoritesList />
       </MainCards>
 

@@ -29,7 +29,7 @@ export const Cards = ({ dados }:cardProps) => {
               to={`/${e.Type}/${e.imdbID}/${e.Title.replace(/\s+/g, '_')}`}
               onClick={handleLinkClick}
             >
-              <MoreInfoButton>ver mais</MoreInfoButton>
+              <MoreInfoButton>see more</MoreInfoButton>
             </Link>
           </CardContent>
         </CardStled>

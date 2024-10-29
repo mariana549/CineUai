@@ -79,7 +79,7 @@ export interface DataContextType {
     erroMinLength: string;
     year: number | undefined;
     setType: React.Dispatch<React.SetStateAction<string>>;
-    setYear: React.Dispatch<React.SetStateAction<number | undefined>>;
+    setYear: React.Dispatch<React.SetStateAction<string | number | undefined>>;
 }
 
 export interface FavoritesContextType {

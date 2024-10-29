@@ -15,18 +15,18 @@ export function MainCards({ children }: PropsChildren) {
     return (
         <Main>
             <Section>
-                <H2>Favoritos</H2>
+                <H2>Favorites</H2>
                 {children}
 
-                <H4>Favoritos nessa pagina</H4>
+                <H4>Favorites on this page</H4>
                 <StyledUL>
                     {favoritesFromStorage.length > 0 && dados && dados.Response === "True" ?
                         <Cards dados={filteredFavoritos || []} /> :
-                        <VerificationMessage>Nenhum favorito encontrado.</VerificationMessage>
+                        <VerificationMessage>No favorites found.</VerificationMessage>
                     }
 
                     {transformFilterdFavoritos === "[]" &&
-                        <VerificationMessage>Não possui favoritos nessa página.</VerificationMessage>
+                        <VerificationMessage>You have no favorites on this page.</VerificationMessage>
                     }
                 </StyledUL>
             </Section>

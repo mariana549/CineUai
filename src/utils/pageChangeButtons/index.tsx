@@ -23,7 +23,7 @@ export function PageChangeButton() {
                 </ToogleButton>
             )}
 
-            <SpanButton>{numPageAtual} de {numPagesTotal}</SpanButton>
+            <SpanButton>{numPageAtual} of {numPagesTotal}</SpanButton>
 
             {numPageAtual < numPagesTotal && (
                 <ToogleButton
