@@ -1,4 +1,4 @@
-import { nextPage, prevPage } from "../../functions/funcoes";
+import { nextPage, prevPage } from "../../functions/api/pagination";
 import { usePage } from "../../hooks/usePage";
 import { useData } from "../../hooks/useData";
 

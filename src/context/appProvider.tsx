@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getData, getNumPagesTotal } from "../functions/funcoes";
+import { getData } from "../functions/api/getData";
+import { getNumPagesTotal } from "../functions/api/pagination";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
 import { ApiData, Favorites, PropsChildren, UseStateDados } from "../utils/interfaces";
 

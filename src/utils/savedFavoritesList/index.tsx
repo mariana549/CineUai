@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { clearFavorite } from "../../functions/funcoes";
+import { clearFavorite } from "../../functions/favorites/clearFavorite";
 import { useFavorites } from "../../hooks/useFavorites";
 import { ClearFavorite, ListItem, StyledDiv } from "./savedFavoritesListStyled";
 import { StyledUL } from "../../globalStyled";

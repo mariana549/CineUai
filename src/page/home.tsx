@@ -1,7 +1,7 @@
 import { MainCards } from "../components/main";
 import { HeaderCards } from "../components/header";
 
-import { clearAllFavorites } from "../functions/funcoes";
+import { clearAllFavorites } from "../functions/favorites/clearAllFavorites";
 import { useFavorites } from "../hooks/useFavorites";
 import { SavedFavoritesList } from "../utils/savedFavoritesList";
 

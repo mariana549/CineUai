@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
-import { getDetails } from "../../functions/funcoes";
+import { getDetails } from "../../functions/api/getDetails";
 import { SearchResult } from "../../utils/interfaces";
 import { HeaderCards } from "../header";
 import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";

@@ -1,4 +1,4 @@
-import { handleSearch } from "../../functions/funcoes";
+import { handleSearch } from "../../functions/search/handleSearch";
 import { useData } from "../../hooks/useData";
 import { usePage } from "../../hooks/usePage";
 import { SearchInput } from "./searchStyled";

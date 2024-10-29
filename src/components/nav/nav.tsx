@@ -1,4 +1,5 @@
-import { getTypes, getYear } from "../../functions/funcoes";
+import { getTypes } from "../../functions/search/getTypes";
+import { getYear } from "../../functions/search/getYear";
 import { useData } from "../../hooks/useData";
 import { InputSearch } from "../search";
 import { Box, SpanErrorInput } from "../../globalStyled";
