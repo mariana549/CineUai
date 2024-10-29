@@ -58,7 +58,7 @@ export const handleSearch = (event: React.ChangeEvent<HTMLInputElement>, setSear
 };
 
 export const clearAllFavorites = (setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
-  const alertClearAllFavorites = window.confirm("Tem certeza que deseja excluir todos os favoritos salvos?")
+  const alertClearAllFavorites = window.confirm("Are you sure you want to delete all saved bookmarks?")
   if (alertClearAllFavorites) {
     setFavorites({});
     localStorage.removeItem('favorites');
@@ -66,7 +66,8 @@ export const clearAllFavorites = (setFavorites: React.Dispatch<React.SetStateAct
 };
 
 export const clearFavorite = (name: string, id: string, setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
-  const alertClearFavorite = window.confirm(`Tem certeza que deseja excluir ${name}, dos favoritos salvos?`)
+  const alertClearFavorite = window.confirm(`Are you sure you want to delete ${name} from your saved favorites?`)
+  
   if (alertClearFavorite) {
     setFavorites((prevFavorites) => {
       const updatedFavorites = { ...prevFavorites };

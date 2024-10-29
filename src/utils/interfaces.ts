@@ -49,6 +49,7 @@ interface FavoriteDados {
 
 export interface FavoriteButtonProps {
     favoriteDados: FavoriteDados;
+    bg: string
 }
 
 
@@ -63,7 +64,7 @@ export interface UseStateDados {
     searchValue: string;
     numPageAtual: number; 
     type?: string;
-    year?: number | undefined;
+    year?: string | number | undefined;
     setDados: React.Dispatch<React.SetStateAction<ApiData | null>>;
     setNotFound: React.Dispatch<React.SetStateAction<string | null>>;
     setErrorMinLength: React.Dispatch<React.SetStateAction<string>>;
@@ -77,7 +78,7 @@ export interface DataContextType {
     numPagesTotal: number;
     notFound: string | null;
     erroMinLength: string;
-    year: number | undefined;
+    year: string | number | undefined;
     setType: React.Dispatch<React.SetStateAction<string>>;
     setYear: React.Dispatch<React.SetStateAction<string | number | undefined>>;
 }

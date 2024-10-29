@@ -10,7 +10,7 @@ export const AppProvider = ({ children }: PropsChildren) => {
     const [erroMinLength, setErrorMinLength] = useState('');
     const [notFound, setNotFound] = useState<string | null>(null);
     const [type, setType] = useState("");
-    const [year, setYear] = useState<number>();
+    const [year, setYear] = useState<string | number>();
     const [favorites, setFavorites] = useState(() => {
         const savedFavorites = localStorage.getItem('favorites');
         return savedFavorites ? JSON.parse(savedFavorites) : {};
@@ -77,7 +77,7 @@ export const AppProvider = ({ children }: PropsChildren) => {
                 setFavorites: setFavorites,
                 toggleFavorite: toggleFavorite,
                 favoritesList: favoritesList,
-                favoritesFromStorage: favoritesFromStorage,
+                favoritesFromStorage: favoritesFromStorage, 
                 filteredFavoritos: filteredFavoritos,
                 transformFilterdFavoritos: transformFilterdFavoritos
             }}>
