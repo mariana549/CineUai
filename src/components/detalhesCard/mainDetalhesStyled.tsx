@@ -10,6 +10,7 @@ export const Main = styled.main`
   border: 1px solid ${color50};
   max-width: 800px;
   margin: auto;
+  margin-bottom: 20px;
 `;
 
 const focusImage = keyframes`
