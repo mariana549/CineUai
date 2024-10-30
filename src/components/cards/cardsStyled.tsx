@@ -12,7 +12,22 @@ export const CardStled = styled.li`
 
   &:hover {
     transform: translateY(-10px);
-}
+  }
+
+  @media (max-width: 765px) {
+    width: 250px;
+    height: 350px;
+  }
+
+  @media (max-width: 600px) {
+    width: 200px;
+    height: 300px;
+  }
+
+  @media (max-width: 414px) {
+    width: 300px;
+    height: 400px;
+  }
 `;
 
 export const ImgCardStyled = styled.img`
@@ -39,19 +54,54 @@ export const CardContent = styled.div`
     transform: translateY(0);
   }
 
+  @media (max-width: 765px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 414px) {
+    padding: 20px;
+  }
 `;
 
 export const TituloCardStyled = styled.h3`
-    margin: 0;
+  margin: 0;
+  padding: 10px 0;
+
+  @media (max-width: 765px) {
+    font-size: 16px;
+    padding: 7px 0;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 13px;
+    padding: 5px 0;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 18px;
     padding: 10px 0;
+  }
 `;
 export const SpanCardStyled = styled.p`
     margin: 0;
     padding: 10px 0;
     text-transform: capitalize;
+
+    @media (max-width: 765px) {
+      font-size: 14px;
+      padding: 7px 0;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 12px;
+      padding: 5px 0;
+    }
+
+    @media (max-width: 414px) {
+      font-size: 16px;
+      padding: 10px 0;
+    }
 `;
-
-
 
 export const MoreInfoButton = styled.button`
   background: #12a5c0;
@@ -64,5 +114,20 @@ export const MoreInfoButton = styled.button`
 
   &:hover {
     background: #0e88a0;
+  }
+
+  @media (max-width: 765px) {
+    font-size: 12px;
+    padding: 7px 15px;
+  }
+
+  @media (max-width: 765px) {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 13px;
+    padding: 10px 20px;
   }
 `;
