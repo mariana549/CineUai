@@ -11,7 +11,6 @@ export const Main = styled.main`
   max-width: 800px;
   margin: auto;
   margin-bottom: 20px;
-  padding-bottom: 0px;
 
   @media (max-width: 765px) {
     padding: 17px;
