@@ -3,7 +3,6 @@ import { getData } from "../functions/api/getData";
 import { getNumPagesTotal } from "../functions/api/pagination";
 import { DataContext, FavoritesContext, PageContext } from "./appContext";
 import { ApiData, PropsChildren, UseStateDados } from "../utils/types/interfaces";
-import { Favorites } from "../utils/types/types";
 
 export const AppProvider = ({ children }: PropsChildren) => {
     const [dados, setDados] = useState<ApiData | null>(null);
@@ -39,15 +38,6 @@ export const AppProvider = ({ children }: PropsChildren) => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites]);
 
-    const toggleFavorite = (title: string, id: string) => {
-        setFavorites((prevFavorites: Favorites) => {
-            const updatedFavorites: Favorites = { ...prevFavorites, [id]: { title, isFavorite: !prevFavorites[id]?.isFavorite || false } };
-            if (!updatedFavorites[id].isFavorite) delete updatedFavorites[id];
-            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-            return updatedFavorites;
-        });
-    };
-
     const numTotalResults = dados?.totalResults || 0;
     const numPagesTotal = getNumPagesTotal(numTotalResults);
     const favoritesList = Object.keys(favorites).map((id) => ({
@@ -77,7 +67,6 @@ export const AppProvider = ({ children }: PropsChildren) => {
             <FavoritesContext.Provider value={{
                 favorites: favorites,
                 setFavorites: setFavorites,
-                toggleFavorite: toggleFavorite,
                 favoritesList: favoritesList,
                 favoritesFromStorage: favoritesFromStorage, 
                 filteredFavoritos: filteredFavoritos,

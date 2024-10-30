@@ -1,4 +1,5 @@
 import { ChangeEvent, ReactNode } from "react";
+import { Favorites } from "./types";
 
 export interface SearchResult {
     Poster: string;
@@ -84,8 +85,7 @@ export interface DataContextType {
 
 export interface FavoritesContextType {
     favorites: Record<string, { title: string; isFavorite: boolean }>;
-    setFavorites: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
-    toggleFavorite: (title: string, id: string) => void;
+    setFavorites: React.Dispatch<React.SetStateAction<Favorites>>;
     favoritesList: { title: string; id: string }[];
     favoritesFromStorage: string[];
     filteredFavoritos: SearchResult[] | undefined

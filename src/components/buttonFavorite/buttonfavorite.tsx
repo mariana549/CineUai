@@ -4,6 +4,7 @@ import { FavoriteButton, FavoritedCardStyled } from "./buttonFavoriteStyled";
 import favorited from "../../assets/icons/favorited.png";
 import notfavorited from "../../assets/icons/notFavorited.png";
 import { FavoriteButtonProps } from "../../utils/types/interfaces";
+import { toggleFavorite } from "../../functions/favorites/toggleFavorite";
 
 const imgFavorite = {
   notFavorited: notfavorited,
@@ -12,14 +13,14 @@ const imgFavorite = {
 
 
 export function ButtonFavorite ({favoriteDados, bg}: FavoriteButtonProps) {
-    const { favorites, toggleFavorite } = useFavorites();
+    const { favorites, setFavorites } = useFavorites();
 
     return (
         <FavoriteButton style={{background: `${bg}`}}>
         <FavoritedCardStyled
           src={favorites[favoriteDados.imdbID]?.isFavorite ? imgFavorite.favorited : imgFavorite.notFavorited}
           alt="favorite"
-          onClick={() => toggleFavorite(favoriteDados.Title, favoriteDados.imdbID)}
+          onClick={() => toggleFavorite(favoriteDados.Title, favoriteDados.imdbID, setFavorites)}
         />
       </FavoriteButton>
     )
