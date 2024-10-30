@@ -12,7 +12,7 @@ export function MainDestalhesCard({favoriteDados, dados, plot, plotFullCheck}: D
             <Link to={"/"}>
                 <img src={Voltar} alt="retornar" />
             </Link>
-            <ButtonFavorite favoriteDados={favoriteDados} bg={"transparente"} />
+            <ButtonFavorite favoriteDados={favoriteDados} bg={"transparent"} />
             <Figure>
                 <img src={dados?.Poster === "N/A" ? semFoto : dados?.Poster} alt={dados?.Title} />
                 <figcaption><h1>{dados?.Title}</h1></figcaption>
