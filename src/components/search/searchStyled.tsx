@@ -31,4 +31,23 @@ export const SearchInput = styled.input`
     background-size: 20px 20px;
     cursor: pointer;
   }
+
+  @media (max-width: 765px) {
+    width: 600px;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 650px) {
+    width: 550px;
+  }
+
+  @media (max-width: 600px) {
+    width: 500px;
+    font-size: 13px;
+  }
+  
+  @media (max-width: 550px) {
+    width: 370px;
+  }
 `;
