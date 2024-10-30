@@ -7,4 +7,16 @@ export const ToggleButton = styled.button`
   top: 10px;
   right: 50px;
   background-color: ${colorHeader};
+
+  @media (max-width: 765px) {
+    right: 30px;
+
+    img {
+      width: 25px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    right: 15px;
+  }
 `;
