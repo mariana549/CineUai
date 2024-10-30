@@ -26,12 +26,15 @@ export const FooterContent = styled.div`
   p {
     margin: 0;
     font-size: 14px;
+
+  @media (max-width: 414px) {
+    font-size: 12px;
+  }
   }
 `;
 
 export const FooterLink = styled.p`
   color: ${primaryColor};
-  font-size: 14px;
 
   &:hover {
     text-decoration: underline;
