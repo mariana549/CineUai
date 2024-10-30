@@ -11,6 +11,14 @@ export const Main = styled.main`
   max-width: 800px;
   margin: auto;
   margin-bottom: 20px;
+
+  @media (max-width: 765px) {
+    padding: 17px;
+
+    img {
+      width: 26px;
+    }
+  }
 `;
 
 const focusImage = keyframes`
@@ -51,6 +59,20 @@ export const Figure = styled.figure`
     color: ${primaryColor}; 
     margin-top: 10px;
   }
+
+  @media (max-width: 765px) {
+    margin-bottom: 15px;
+
+    figcaption {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 765px) {
+    figcaption {
+      font-size: 13px;
+    }
+  }
 `;
 
 export const Section = styled.section`
@@ -69,6 +91,10 @@ export const Section = styled.section`
 export const Table = styled.table`
   width: 100%;
   margin-top: 20px;
+
+  @media (max-width: 765px) {
+    margin-top: 15px;
+  }
 `;
 
 export const Th = styled.th`
@@ -77,6 +103,11 @@ export const Th = styled.th`
   color: white;
   padding: 10px;
   text-align: left;
+
+  @media (max-width: 765px) {
+   font-size: 14px;
+   padding: 8px;
+  }
 `;
 
 export const Td = styled.td`
@@ -84,6 +115,11 @@ export const Td = styled.td`
   border: 1px solid #ccc;
   padding: 10px;
   text-align: end;
+
+  @media (max-width: 765px) {
+    font-size: 14px;
+    padding: 8px;
+  }
 `;
 
 export const Tr = styled.tr`
@@ -123,6 +159,10 @@ export const RatingItem = styled.li`
   strong {
     color: ${primaryColor};  
   }
+
+  @media (max-width: 765px) {
+    padding: 8px;
+  }
 `;
 
 export const Label = styled.label`
@@ -131,6 +171,11 @@ export const Label = styled.label`
   margin: 10px 0;
   text-transform: capitalize;
   align-items: center;
+
+  @media (max-width: 765px) {
+   font-size: 12px;
+   gap: 7px;
+  }
 `;
 
 export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
@@ -138,10 +183,23 @@ export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
   height: 20px;
   cursor: pointer;
   accent-color: ${primaryColor};  
+
+  @media (max-width: 765px) {
+   width: 15px;
+   height: 15px;
+  }
 `;
 
 export const PlotParagrafro = styled.p`
   font-size: 18px;
   margin-top: 5px;
   text-align: center;
+
+  @media (max-width: 765px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 13px;
+  }
 `;
