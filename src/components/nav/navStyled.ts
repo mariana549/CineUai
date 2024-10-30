@@ -16,6 +16,12 @@ export const StyledSelect = styled.select`
     border-color: ${primaryColor};
     outline: none;
   }
+
+  @media (max-width: 765px) {
+    padding: 7px;
+    font-size: 14px;
+    margin: 0;
+  }
 `;
 
 export const StyledOption = styled.option`
@@ -38,5 +44,12 @@ export const StyledInput = styled.input`
   &:focus {
     border-color: ${primaryColor};
     outline: none;
+  }
+
+  @media (max-width: 765px) {
+    width: 80px;
+    padding: 8px;
+    font-size: 14px;
+    margin: 0;
   }
 `;
