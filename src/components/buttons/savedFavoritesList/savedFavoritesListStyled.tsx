@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color10, color20, color30, errorColor, primaryColor, terciaryColor, textColor } from "../../utils/constants/constThemes";
+import { color10, color20, color30, errorColor, primaryColor, terciaryColor, textColor } from "../../../utils/constants/constThemes";
 
 export const StyledDiv = styled.div`
   padding: 15px;

@@ -3,7 +3,7 @@ import { Home } from "../page/home.tsx"
 import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { Themes } from "../utils/config/themes.ts"
-import { TogglerButton } from "../components/toogleButton/index.tsx"
+import { TogglerButton } from "../components/buttons/toogleButton/index.tsx"
 import { AppProvider } from "../context/appProvider.tsx"
 import { CardDetailsDados } from "../page/cardDados.tsx"
 

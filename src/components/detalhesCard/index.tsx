@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ButtonFavorite } from "../buttonFavorite/buttonfavorite";
+import { ButtonFavorite } from "../buttons/buttonFavorite/buttonfavorite";
 import { Figure, InputCheckBox, Label, Main, PlotParagrafro, RatingItem, Section, Table, Td, Th, Thead, Tr } from "./mainDetalhesStyled";
 
 import Voltar from "../../assets/icons/return.png"

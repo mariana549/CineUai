@@ -3,7 +3,7 @@ import { HeaderCards } from "../components/header";
 
 import { clearAllFavorites } from "../functions/favorites/clearAllFavorites";
 import { useFavorites } from "../hooks/useFavorites";
-import { SavedFavoritesList } from "../components/savedFavoritesList";
+import { SavedFavoritesList } from "../components/buttons/savedFavoritesList";
 
 import { ClearButton, Container, H4 } from "../globalStyled";
 import { Pheader } from "../components/header/headerStyled";

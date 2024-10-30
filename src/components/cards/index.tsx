@@ -2,7 +2,7 @@ import { CardContent, CardStled, ImgCardStyled, MoreInfoButton, SpanCardStyled, 
 import { Link } from 'react-router-dom';
 import { useData } from '../../hooks/useData';
 import { usePage } from '../../hooks/usePage';
-import { ButtonFavorite } from '../buttonFavorite/buttonfavorite';
+import { ButtonFavorite } from '../buttons/buttonFavorite/buttonfavorite';
 import { cardProps } from '../../utils/types/interfaces';
 
 import semFoto from "../../assets/images/semfoto.png";

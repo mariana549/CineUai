@@ -1,10 +1,10 @@
-import { useFavorites } from "../../hooks/useFavorites";
+import { useFavorites } from "../../../hooks/useFavorites";
 import { FavoriteButton, FavoritedCardStyled } from "./buttonFavoriteStyled";
 
-import favorited from "../../assets/icons/favorited.png";
-import notfavorited from "../../assets/icons/notFavorited.png";
-import { FavoriteButtonProps } from "../../utils/types/interfaces";
-import { toggleFavorite } from "../../functions/favorites/toggleFavorite";
+import favorited from "../../../assets/icons/favorited.png";
+import notfavorited from "../../../assets/icons/notFavorited.png";
+import { FavoriteButtonProps } from "../../../utils/types/interfaces";
+import { toggleFavorite } from "../../../functions/favorites/toggleFavorite";
 
 const imgFavorite = {
   notFavorited: notfavorited,
