@@ -8,6 +8,11 @@ export const StyledDiv = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px ${color10};
   margin-bottom: 20px;
+
+  @media (max-width: 765px) {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -22,11 +27,15 @@ export const ListItem = styled.li`
     background-color: ${color20};
     zoom: 1.4;
   }
+
+  @media (max-width: 765px) {
+    font-size: 9px;
+  }
 `
 
 export const ClearFavorite = styled.button`
   display: inline-block;
-  background-color: transparent; // Cor de Alerta
+  background-color: transparent; 
   color: ${primaryColor};
   border: none;
   border-radius: 5px;
@@ -36,11 +45,16 @@ export const ClearFavorite = styled.button`
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    background-color: ${errorColor}; // Cor de Erro ao passar o mouse
+    background-color: ${errorColor}; 
   }
 
   &:focus {
     outline: none;
     box-shadow: 0 0 5px ${primaryColor};
+  }
+
+  @media (max-width: 765px) {
+    font-size: 8px;
+    padding: 3px;
   }
 `;
