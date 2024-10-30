@@ -10,7 +10,7 @@ export function HeaderCards({ children }: PropsChildren){
   return (
     <Header>
       <Box>
-        <img src={logo} alt="logo" style={{ width: "170px" }} />
+        <img src={logo} alt="logo" />
         <Logo translate="no">Cine Uai</Logo>
       </Box>
       {children} 
