@@ -3,11 +3,20 @@ import styled from 'styled-components';
 export const ImgButton = styled.img`
   width: 20px;
   height: 20px;
+
+  @media (max-width: 765px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 export const SpanButton = styled.span`
   font-size: 18px;
   color: #0ca5c0;
+
+  @media (max-width: 765px) {
+    font-size: 16px;
+  }
 `;
 
 export const ToogleButton = styled.button`
@@ -19,6 +28,11 @@ export const ToogleButton = styled.button`
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
+
+  @media (max-width: 765px) {
+    padding: 7px;
+    padding-bottom: 4px;
+  }
 
   &:hover {
     background: #0e88a0;

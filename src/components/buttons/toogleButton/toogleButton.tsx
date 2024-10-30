@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorHeader, primaryColor } from '../../../utils/constants/constThemes';
+import { colorHeader } from '../../../utils/constants/constThemes';
 
 export const ToggleButton = styled.button`
   cursor: pointer;
