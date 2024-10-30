@@ -10,9 +10,17 @@ export const FavoriteButton = styled.button`
   padding-bottom: 5px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease;
+
+  @media (max-width: 765px) {
+    padding: 5px;
+    padding-bottom: 2px;
+  }
 `;
 
 export const FavoritedCardStyled = styled.img`
    width: 25px;
+
+   @media (max-width: 765px) {
+    width: 18px;
+  }
 `;
