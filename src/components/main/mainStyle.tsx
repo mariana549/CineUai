@@ -21,6 +21,16 @@ export const H2 = styled.h2`
   color: ${primaryColor};
   border-bottom: 2px solid ${primaryColor};
   padding-bottom: 5px;
+
+  @media (max-width: 765px) {
+    font-size: 20px;
+    margin-bottom: 7px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
 `;
 
 ;
@@ -34,5 +44,16 @@ export const VerificationMessage = styled.p`
   background-color: ${color50};
   padding: 10px;
   border-radius: 10px;
+
+  @media (max-width: 765px) {
+    font-size: 15px;
+    margin: 15px 0;
+    padding: 8px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 13px;
+    margin: 13px 0;
+  }
 `;
 
