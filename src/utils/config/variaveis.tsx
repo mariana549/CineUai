@@ -1,1 +1,1 @@
-export const BASE_URL: string = "http://www.omdbapi.com";
+export const BASE_URL: string = "https://www.omdbapi.com";

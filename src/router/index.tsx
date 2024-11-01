@@ -21,7 +21,7 @@ export function AppRoutes() {
         <ThemeProvider theme={ Themes[theme] }>
             <TogglerButton setTheme={setTheme} theme={theme} />
             <AppProvider>
-                <Routes>
+                <Routes> 
                     <Route path="/" element={<Home />} />
                     <Route path="/:type/:id/:title" element={<CardDetailsDados />} />
                 </Routes>
