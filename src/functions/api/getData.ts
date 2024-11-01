@@ -1,4 +1,4 @@
-import { getApi_Search } from "../../services/requestApi";
+import { getApi_Search } from "../../services/api_search/requstApiSearch";
 import { UseStateDados } from "../../utils/types/interfaces";
 
 export async function getData(useStateDados: UseStateDados) {  
@@ -23,4 +23,4 @@ export async function getData(useStateDados: UseStateDados) {
     } else {
       useStateDados.setErrorMinLength("Digite no mínimo 3 caracteres");
     }
-  }
+}

@@ -1,4 +1,4 @@
-import { getApi_Dados } from "../../services/requestApi";
+import { getApi_Dados } from "../../services/api_dados/requestApiDados";
 import { SearchResult } from "../../utils/types/interfaces";
 
 export async function getDetails(setDados: React.Dispatch<React.SetStateAction<SearchResult | undefined>>, id: string, plot: string) {
