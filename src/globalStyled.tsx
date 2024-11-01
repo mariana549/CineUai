@@ -30,8 +30,6 @@ export const SpanErrorInput = styled.span`
 `;
 
 export const StyledUL = styled.ul`
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

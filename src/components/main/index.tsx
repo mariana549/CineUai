@@ -32,7 +32,7 @@ export function MainCards({ children }: PropsChildren) {
             <Section>
                 <H2>Todos os Resultados</H2>
                 <PageChangeButton />
-                <StyledUL>
+                <StyledUL style={{justifyContent: "center"}}>
                     {dados && (
                         dados.Response === 'True' ?
                             <Cards dados={dados.Search} /> :
