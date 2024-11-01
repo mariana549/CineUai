@@ -10,15 +10,15 @@ import { CardDetailsDados } from "../page/cardDados.tsx"
 export function AppRoutes() {
     const [theme, setTheme] = useState(() => {
         const savedTheme = localStorage.getItem("ThemeAtual");
-        return savedTheme ? savedTheme : "light";
+        return savedTheme ? savedTheme : "light"; 
     });
 
     useEffect(() => {
-        localStorage.setItem("ThemeAtual", theme);
+        localStorage.setItem("ThemeAtual", theme.toString());
     }, [theme]);
 
     return (
-        <ThemeProvider theme={{ Theme: Themes[theme] }}>
+        <ThemeProvider theme={ Themes[theme] }>
             <TogglerButton setTheme={setTheme} theme={theme} />
             <AppProvider>
                 <Routes>
