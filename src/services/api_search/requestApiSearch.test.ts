@@ -85,4 +85,16 @@ describe('Função Api_Search', () => {
         const data = await getApi_Search(searchValue, numPageAtual, type, year);
         expect(data).toEqual(mockDataSearch)
     })
+    
+    it('deve lidar corretamente com limite de taxa (429 Too Many Results)', async () => {
+        const searchValue = 'har';
+        const numPageAtual = 1;
+        const type = "";
+        const year = '';
+        mock.onGet(`https://www.omdbapi.com/?s=${searchValue}&page=${numPageAtual}&type=${type}&y=${year}&apikey=${CHAVE_API_KEY}`)
+        .reply(429, {Response: 'False', Error: 'Too many results.'}) 
+
+        await expect(getApi_Search(searchValue, numPageAtual, type, year))
+        .rejects.toThrow('Request failed with status code 429');
+    })
 })
