@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { backgroundColor, color10, color50, color60, color70, primaryColor } from '../../utils/constants/constThemes';
+import { backgroundColor, color10, color50, color60, color70, primaryColor } from '../../utils/constants/constTheme/constThemes';
 
 export const Main = styled.main`
   position: relative;

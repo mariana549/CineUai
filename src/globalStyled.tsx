@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { backgroundColor, highlightColor, primaryColor, textColor } from "./utils/constants/constThemes";
+import { backgroundColor, highlightColor, primaryColor, textColor } from "./utils/constants/constTheme/constThemes";
 
 export const Container = styled.div`
   display: flex;

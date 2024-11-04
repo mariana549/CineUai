@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color40, color50, primaryColor } from "../../utils/constants/constThemes";
+import { color40, color50, primaryColor } from "../../utils/constants/constTheme/constThemes";
 
 export const Main = styled.main`
   width: 90%;
