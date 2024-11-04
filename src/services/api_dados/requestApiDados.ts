@@ -10,6 +10,5 @@ export async function getApi_Dados(
     const URL_FILTER = `${BASE_URL}/?i=${ID}&plot=${plot}&apikey=${CHAVE_API_KEY}`;
     const response = await axios.get(URL_FILTER);
     const data = await response.data;
-    console.log(data)
     return data;
 }
