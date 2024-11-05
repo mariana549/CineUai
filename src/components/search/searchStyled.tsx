@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import apagar from "../../assets/icons/apagar.png"
+import styled from "styled-components";
+import apagar from "../../assets/icons/apagar.png";
 
 export const SearchInput = styled.input`
   width: 700px;
@@ -46,7 +46,7 @@ export const SearchInput = styled.input`
     width: 500px;
     font-size: 13px;
   }
-  
+
   @media (max-width: 550px) {
     width: 370px;
   }

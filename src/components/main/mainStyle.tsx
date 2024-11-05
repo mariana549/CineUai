@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { color40, color50, primaryColor } from "../../utils/constants/constTheme/constThemes";
+import {
+  color40,
+  color50,
+  primaryColor,
+} from "../../utils/constants/constTheme/constThemes";
 
 export const Main = styled.main`
   width: 90%;
@@ -33,8 +37,6 @@ export const H2 = styled.h2`
   }
 `;
 
-;
-
 export const VerificationMessage = styled.p`
   color: ${color40};
   font-size: 18px;
@@ -56,4 +58,3 @@ export const VerificationMessage = styled.p`
     margin: 13px 0;
   }
 `;
-

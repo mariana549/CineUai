@@ -11,7 +11,7 @@ export const Header = styled.header`
   margin-bottom: 20px;
 
   img {
-    width: 170px
+    width: 170px;
   }
 
   @media (max-width: 765px) {
@@ -44,7 +44,7 @@ export const Logo = styled.h1`
   }
 
   @media (max-width: 600px) {
-    font-size: 3.0rem;
+    font-size: 3rem;
   }
 `;
 

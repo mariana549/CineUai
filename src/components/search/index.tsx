@@ -5,13 +5,15 @@ import { SearchInput } from "./searchStyled";
 
 export function InputSearch() {
   const { setSearchValue, searchValue } = useData();
-  const { setNumPageAtual } = usePage()
+  const { setNumPageAtual } = usePage();
 
-  const handleSearchWithReset = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleSearch( event, setSearchValue );
+  const handleSearchWithReset = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    handleSearch(event, setSearchValue);
     setNumPageAtual(1); // Reseta a página atual para 1
   };
-  
+
   return (
     <SearchInput
       type="search"

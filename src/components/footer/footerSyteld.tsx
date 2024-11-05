@@ -1,5 +1,9 @@
-import styled from 'styled-components';
-import { backgroundColor, primaryColor, textColor } from '../../utils/constants/constTheme/constThemes';
+import styled from "styled-components";
+import {
+  backgroundColor,
+  primaryColor,
+  textColor,
+} from "../../utils/constants/constTheme/constThemes";
 
 export const FooterContainer = styled.footer`
   background-color: ${backgroundColor};
@@ -27,9 +31,9 @@ export const FooterContent = styled.div`
     margin: 0;
     font-size: 14px;
 
-  @media (max-width: 414px) {
-    font-size: 12px;
-  }
+    @media (max-width: 414px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -41,6 +45,6 @@ export const FooterLink = styled.p`
   }
 `;
 
-export const RedeSocial = styled(FooterLink).attrs({ as: 'a' })`
-    text-decoration: none;
-`
+export const RedeSocial = styled(FooterLink).attrs({ as: "a" })`
+  text-decoration: none;
+`;

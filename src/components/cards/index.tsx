@@ -1,3 +1,8 @@
+import { Link } from "react-router-dom";
+import { useData } from "../../hooks/useData";
+import { usePage } from "../../hooks/usePage";
+import { cardProps } from "../../utils/types/interfaces";
+import { ButtonFavorite } from '../buttons/buttonFavorite/buttonfavorite';
 import {
   CardContent,
   CardStled,
@@ -6,11 +11,6 @@ import {
   SpanCardStyled,
   TituloCardStyled,
 } from "./cardsStyled";
-import { Link } from "react-router-dom";
-import { useData } from "../../hooks/useData";
-import { usePage } from "../../hooks/usePage";
-import { ButtonFavorite } from "../buttons/buttonFavorite/buttonfavorite";
-import { cardProps } from "../../utils/types/interfaces";
 
 import semFoto from "../../assets/images/semfoto.png";
 

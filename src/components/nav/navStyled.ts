@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { backgroundColor, primaryColor, textColor } from "../../utils/constants/constTheme/constThemes";
+import {
+  backgroundColor,
+  primaryColor,
+  textColor,
+} from "../../utils/constants/constTheme/constThemes";
 
 export const StyledSelect = styled.select`
   padding: 10px;

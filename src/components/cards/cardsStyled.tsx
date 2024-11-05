@@ -83,24 +83,24 @@ export const TituloCardStyled = styled.h3`
   }
 `;
 export const SpanCardStyled = styled.p`
-    margin: 0;
+  margin: 0;
+  padding: 10px 0;
+  text-transform: capitalize;
+
+  @media (max-width: 765px) {
+    font-size: 14px;
+    padding: 7px 0;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+
+  @media (max-width: 414px) {
+    font-size: 16px;
     padding: 10px 0;
-    text-transform: capitalize;
-
-    @media (max-width: 765px) {
-      font-size: 14px;
-      padding: 7px 0;
-    }
-
-    @media (max-width: 600px) {
-      font-size: 12px;
-      padding: 5px 0;
-    }
-
-    @media (max-width: 414px) {
-      font-size: 16px;
-      padding: 10px 0;
-    }
+  }
 `;
 
 export const MoreInfoButton = styled.button`

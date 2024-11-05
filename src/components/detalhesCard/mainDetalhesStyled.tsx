@@ -1,10 +1,17 @@
-import styled, { keyframes } from 'styled-components';
-import { backgroundColor, color10, color50, color60, color70, primaryColor } from '../../utils/constants/constTheme/constThemes';
+import styled, { keyframes } from "styled-components";
+import {
+  backgroundColor,
+  color10,
+  color50,
+  color60,
+  color70,
+  primaryColor,
+} from "../../utils/constants/constTheme/constThemes";
 
 export const Main = styled.main`
   position: relative;
   padding: 20px;
-  background-color: ${backgroundColor}; 
+  background-color: ${backgroundColor};
   border-radius: 10px;
   box-shadow: 0 4px 8px ${color60};
   border: 1px solid ${color50};
@@ -57,7 +64,7 @@ export const Figure = styled.figure`
   figcaption {
     font-size: 18px;
     font-weight: 700;
-    color: ${primaryColor}; 
+    color: ${primaryColor};
     margin-top: 10px;
   }
 
@@ -80,7 +87,7 @@ export const Section = styled.section`
   margin-bottom: 20px;
 
   a {
-    color: ${primaryColor};  
+    color: ${primaryColor};
     text-decoration: none;
 
     &:hover {
@@ -100,14 +107,14 @@ export const Table = styled.table`
 
 export const Th = styled.th`
   border-radius: 5px;
-  background-color: ${primaryColor};  
+  background-color: ${primaryColor};
   color: white;
   padding: 10px;
   text-align: left;
 
   @media (max-width: 765px) {
-   font-size: 14px;
-   padding: 8px;
+    font-size: 14px;
+    padding: 8px;
   }
 `;
 
@@ -124,7 +131,7 @@ export const Td = styled.td`
 `;
 
 export const Tr = styled.tr`
-  background-color:${color70} ;
+  background-color: ${color70};
   &:nth-child(even) {
     background-color: #f2f2f2;
   }
@@ -149,7 +156,7 @@ export const Thead = styled.thead`
 `;
 
 export const RatingItem = styled.li`
-  background: ${color70}; 
+  background: ${color70};
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
@@ -158,7 +165,7 @@ export const RatingItem = styled.li`
   text-align: center;
 
   strong {
-    color: ${primaryColor};  
+    color: ${primaryColor};
   }
 
   @media (max-width: 765px) {
@@ -174,20 +181,20 @@ export const Label = styled.label`
   align-items: center;
 
   @media (max-width: 765px) {
-   font-size: 12px;
-   gap: 7px;
+    font-size: 12px;
+    gap: 7px;
   }
 `;
 
-export const InputCheckBox = styled.input.attrs({ type: 'checkbox' })`
+export const InputCheckBox = styled.input.attrs({ type: "checkbox" })`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: ${primaryColor};  
+  accent-color: ${primaryColor};
 
   @media (max-width: 765px) {
-   width: 15px;
-   height: 15px;
+    width: 15px;
+    height: 15px;
   }
 `;
 

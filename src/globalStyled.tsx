@@ -1,5 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { backgroundColor, highlightColor, primaryColor, textColor } from "./utils/constants/constTheme/constThemes";
+import {
+  backgroundColor,
+  highlightColor,
+  primaryColor,
+  textColor,
+} from "./utils/constants/constTheme/constThemes";
 
 export const Container = styled.div`
   display: flex;
@@ -35,7 +40,7 @@ export const StyledUL = styled.ul`
   gap: 10px;
 
   @media (max-width: 765px) {
-   gap: 7px;
+    gap: 7px;
   }
 `;
 
@@ -45,14 +50,13 @@ export const H4 = styled.h4`
   color: ${textColor};
 
   @media (max-width: 765px) {
-   font-size: 1em;
+    font-size: 1em;
   }
 
   @media (max-width: 600px) {
-   font-size: 0.93em;
+    font-size: 0.93em;
   }
 `;
-
 
 export const ClearButton = styled.button`
   padding: 10px 20px;
@@ -67,8 +71,8 @@ export const ClearButton = styled.button`
   }
 
   @media (max-width: 765px) {
-   padding: 7px 15px; 
-   font-size: 11px;
+    padding: 7px 15px;
+    font-size: 11px;
   }
 `;
 
@@ -85,5 +89,4 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
   }
-`
-
+`;

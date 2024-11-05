@@ -1,38 +1,40 @@
 import { nextPage, prevPage } from "../../../functions/api/pagination";
-import { usePage } from "../../../hooks/usePage";
 import { useData } from "../../../hooks/useData";
+import { usePage } from "../../../hooks/usePage";
 
-import { ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
 import { Box } from "../../../globalStyled";
+import { ImgButton, SpanButton, ToogleButton } from "./pageChangeButtonStled";
 
-import leftArrow from '../../../assets/icons/leftArrow.png';
-import rightArrow from '../../../assets/icons/rigthArrow.png';
+import leftArrow from "../../../assets/icons/leftArrow.png";
+import rightArrow from "../../../assets/icons/rigthArrow.png";
 
 export function PageChangeButton() {
-    const { numPageAtual, setNumPageAtual } = usePage()
-    const { numPagesTotal } = useData()
+  const { numPageAtual, setNumPageAtual } = usePage();
+  const { numPagesTotal } = useData();
 
-    return (
-        <Box>
-            {numPageAtual > 1 && (
-                <ToogleButton
-                    type="button"
-                    onClick={() => prevPage(numPageAtual, setNumPageAtual)}
-                >
-                    <ImgButton src={leftArrow} alt="leftArrow" />
-                </ToogleButton>
-            )}
+  return (
+    <Box>
+      {numPageAtual > 1 && (
+        <ToogleButton
+          type="button"
+          onClick={() => prevPage(numPageAtual, setNumPageAtual)}
+        >
+          <ImgButton src={leftArrow} alt="leftArrow" />
+        </ToogleButton>
+      )}
 
-            <SpanButton>{numPageAtual} of {numPagesTotal}</SpanButton>
+      <SpanButton>
+        {numPageAtual} of {numPagesTotal}
+      </SpanButton>
 
-            {numPageAtual < numPagesTotal && (
-                <ToogleButton
-                    type="button"
-                    onClick={() => nextPage(numPageAtual, numPagesTotal, setNumPageAtual)}
-                >
-                    <ImgButton src={rightArrow} alt="rightArrow" />
-                </ToogleButton>
-            )}
-        </Box>
-    )
+      {numPageAtual < numPagesTotal && (
+        <ToogleButton
+          type="button"
+          onClick={() => nextPage(numPageAtual, numPagesTotal, setNumPageAtual)}
+        >
+          <ImgButton src={rightArrow} alt="rightArrow" />
+        </ToogleButton>
+      )}
+    </Box>
+  );
 }
