@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { TogglerButton } from "../components/buttons/toogleButton/index.tsx";
 import { AppProvider } from "../context/appProvider.tsx";
 import { CardDetailsDados } from "../page/cardDados.tsx";
-import { Home } from "../page/home.tsx";
+import { Home } from "../page/home/home.js";
 import { Themes } from "../utils/constants/themes.ts";
 
 export function AppRoutes() {

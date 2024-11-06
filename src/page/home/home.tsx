@@ -10,7 +10,7 @@ import { Pheader } from "../../components/header/headerStyled";
 import { Nav } from "../../components/nav/nav";
 import { ClearButton, Container, H4 } from "../../globalStyled";
 
-export const Home = () => {
+export function Home() {
   const { setFavorites } = useFavorites();
 
   return (
@@ -34,4 +34,4 @@ export const Home = () => {
       <Footer />
     </Container>
   );
-};
+}
