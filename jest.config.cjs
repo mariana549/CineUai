@@ -8,7 +8,7 @@ module.exports = {
     testMatch: [
         '**/?(*.)+(test).[jt]s?(x)'
     ],
-    setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
     transformIgnorePatterns: [
         '/node_modules/'
     ]

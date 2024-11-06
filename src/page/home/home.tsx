@@ -17,8 +17,7 @@ export function Home() {
     <Container>
       <HeaderCards>
         <Pheader>
-          Enter endless entertainment! Discover all about your movies and series
-          now.
+          Enter endless entertainment! Discover all about your movies and series now.
         </Pheader>
         <Nav />
       </HeaderCards>

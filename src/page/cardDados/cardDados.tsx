@@ -1,12 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MainDestalhesCard } from "../components/detalhesCard";
-import { Footer } from "../components/footer";
-import { HeaderCards } from "../components/header";
-import { Pheader } from "../components/header/headerStyled";
-import { getDetails } from "../functions/api/getDetails";
-import { Container } from "../globalStyled";
-import { SearchResult } from "../utils/types/interfaces";
+import { MainDestalhesCard } from "../../components/detalhesCard";
+import { Footer } from "../../components/footer";
+import { HeaderCards } from "../../components/header";
+import { Pheader } from "../../components/header/headerStyled";
+import { getDetails } from "../../functions/api/getDetails";
+import { Container } from "../../globalStyled";
+import { SearchResult } from "../../utils/types/interfaces";
 
 export const CardDetailsDados = () => {
   const [dados, setDados] = useState<SearchResult>();

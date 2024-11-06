@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { TogglerButton } from "../components/buttons/toogleButton/index.tsx";
 import { AppProvider } from "../context/appProvider.tsx";
-import { CardDetailsDados } from "../page/cardDados.tsx";
+import { CardDetailsDados } from "../page/cardDados/cardDados.js";
 import { Home } from "../page/home/home.js";
 import { Themes } from "../utils/constants/themes.ts";
 
