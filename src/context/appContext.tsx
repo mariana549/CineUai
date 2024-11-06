@@ -4,7 +4,18 @@ import {
   FavoritesContextType,
   PageContextType,
 } from "../utils/types/interfaces";
+import {
+  defaultDataContextValue,
+  defaultFavoritesContextValue,
+  defaultPageContextValue,
+} from "./defaultValue";
 
-export const DataContext = createContext<DataContextType | null>(null);
-export const FavoritesContext = createContext<FavoritesContextType | null>(null);
-export const PageContext = createContext<PageContextType | null>(null);
+export const DataContext = createContext<DataContextType>(
+  defaultDataContextValue
+);
+export const FavoritesContext = createContext<FavoritesContextType>(
+  defaultFavoritesContextValue
+);
+export const PageContext = createContext<PageContextType>(
+  defaultPageContextValue
+);
