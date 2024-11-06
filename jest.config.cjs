@@ -11,5 +11,6 @@ module.exports = {
     setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
     transformIgnorePatterns: [
         '/node_modules/'
-    ]
+    ],
+    moduleNameMapper: { '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js'}
 };
