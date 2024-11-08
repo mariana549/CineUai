@@ -3,7 +3,7 @@ import { FavoriteButton, FavoritedCardStyled } from "./buttonFavoriteStyled";
 
 import favorited from "../../../assets/icons/favorited.png";
 import notfavorited from "../../../assets/icons/notFavorited.png";
-import { toggleFavorite } from "../../../functions/favorites/toggleFavorite";
+import { toggleFavorite } from "../../../functions/favorites/toggleFavorite/toggleFavorite";
 import { FavoriteButtonProps } from "../../../utils/types/interfaces";
 
 const imgFavorite = {

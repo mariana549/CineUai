@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ButtonFavorite } from "./buttonfavorite";
-import { toggleFavorite } from "../../../functions/favorites/toggleFavorite";
+import { toggleFavorite } from "../../../functions/favorites/toggleFavorite/toggleFavorite";
 import { useFavorites } from "../../../hooks/useFavorites";
 import favorited from "../../../assets/icons/favorited.png";
 import notfavorited from "../../../assets/icons/notFavorited.png";
 
 jest.mock("../../../hooks/useFavorites");
-jest.mock("../../../functions/favorites/toggleFavorite");
+jest.mock("../../../functions/favorites/toggleFavorite/toggleFavorite");
 
 const mockFavoriteDados = {
   Title: "Harry Potter and the Deathly Hallows: Part 2",
@@ -63,19 +63,19 @@ describe("buttonFavorite", () => {
     expect(buttonFavorite).toHaveAttribute("src", notfavorited);
   });
 
-it("deve chamar toggleFavorite ao clicar no botão", () => {
-  const setFavoritesMock = jest.fn();
-  const title = "Harry Potter and the Deathly Hallows: Part 2";
-  const id = "tt1201607";
+  it("deve chamar toggleFavorite ao clicar no botão", () => {
+    const setFavoritesMock = jest.fn();
+    const title = "Harry Potter and the Deathly Hallows: Part 2";
+    const id = "tt1201607";
 
-  (useFavorites as jest.Mock).mockReturnValue({
-    favorites: {},
-    setFavorites: setFavoritesMock,
+    (useFavorites as jest.Mock).mockReturnValue({
+      favorites: {},
+      setFavorites: setFavoritesMock,
+    });
+
+    render(<ButtonFavorite favoriteDados={mockFavoriteDados} bg="blue" />);
+    fireEvent.click(screen.getByAltText("favorite"));
+
+    expect(toggleFavorite).toHaveBeenCalledWith(title, id, setFavoritesMock);
   });
-  
-  render(<ButtonFavorite favoriteDados={mockFavoriteDados} bg="blue" />);
-  fireEvent.click(screen.getByAltText("favorite"));
-
-  expect(toggleFavorite).toHaveBeenCalledWith(title, id, setFavoritesMock);
-});
 });

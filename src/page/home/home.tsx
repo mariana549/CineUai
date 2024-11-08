@@ -2,7 +2,7 @@ import { HeaderCards } from "../../components/header";
 import { MainCards } from "../../components/main";
 
 import { SavedFavoritesList } from "../../components/buttons/savedFavoritesList";
-import { clearAllFavorites } from "../../functions/favorites/clearAllFavorites";
+import { clearAllFavorites } from "../../functions/favorites/clearAllFavorites/clearAllFavorites";
 import { useFavorites } from "../../hooks/useFavorites";
 
 import { Footer } from "../../components/footer";
