@@ -33,7 +33,13 @@ export interface PropsChildren {
 }
 
 export interface cardProps {
-  dados: SearchResult[];
+  dados: {
+    Poster: string;
+    Title: string;
+    Year: string;
+    Type: string;
+    imdbID: string;
+  }[];
 }
 
 export interface Favorite {
