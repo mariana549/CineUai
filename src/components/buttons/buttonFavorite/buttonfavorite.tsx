@@ -15,7 +15,10 @@ export function ButtonFavorite({ favoriteDados, bg }: FavoriteButtonProps) {
   const { favorites, setFavorites } = useFavorites();
 
   return (
-    <FavoriteButton style={{ background: `${bg}` }}>
+    <FavoriteButton
+      style={{ background: `${bg}` }}
+      data-testid={`button-favorite-${favoriteDados.imdbID}`}
+    >
       <FavoritedCardStyled
         src={
           favorites[favoriteDados.imdbID]?.isFavorite
