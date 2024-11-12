@@ -1,4 +1,4 @@
-import { HeaderCards } from "../../components/header";
+import { Header } from "../../components/header";
 import { MainCards } from "../../components/main";
 
 import { SavedFavoritesList } from "../../components/buttons/savedFavoritesList";
@@ -15,12 +15,12 @@ export function Home() {
 
   return (
     <Container>
-      <HeaderCards>
+      <Header>
         <Pheader>
           Enter endless entertainment! Discover all about your movies and series now.
         </Pheader>
         <Nav />
-      </HeaderCards>
+      </Header>
 
       <MainCards>
         <ClearButton onClick={() => clearAllFavorites(setFavorites)}>

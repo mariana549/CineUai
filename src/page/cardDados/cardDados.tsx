@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MainDestalhesCard } from "../../components/detalhesCard";
 import { Footer } from "../../components/footer";
-import { HeaderCards } from "../../components/header";
+import { Header } from "../../components/header";
 import { Pheader } from "../../components/header/headerStyled";
 import { getDetails } from "../../functions/api/getDetails";
 import { Container } from "../../globalStyled";
@@ -36,9 +36,9 @@ export const CardDetailsDados = () => {
 
   return (
     <Container>
-      <HeaderCards>
+      <Header>
         <Pheader>Your {type} is here.</Pheader>
-      </HeaderCards>
+      </Header>
 
       <MainDestalhesCard
         favoriteDados={favoriteDados}

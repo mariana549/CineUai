@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colorHeader } from "../../utils/constants/constTheme/constThemes";
 
-export const Header = styled.header`
+export const HeaderSty = styled.header`
   text-align: center;
   padding: 20px;
   background-color: ${colorHeader};
