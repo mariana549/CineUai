@@ -15,8 +15,8 @@ import {
 import semFoto from "../../assets/images/semfoto.png";
 
 export const Cards = ({ dados }: cardProps) => {
-  const { searchValue } = useData();
-  const { numPageAtual } = usePage();
+  const { searchValue } = useData() || { searchValue: 'harry potter' };
+  const { numPageAtual } = usePage() || { numPageAtual: 1 };
 
   const handleLinkClick = () => {
     localStorage.setItem("searchValue", searchValue);

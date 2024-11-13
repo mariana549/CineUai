@@ -21,7 +21,7 @@ export function ButtonFavorite({ favoriteDados, bg }: FavoriteButtonProps) {
     >
       <FavoritedCardStyled
         src={
-          favorites[favoriteDados.imdbID]?.isFavorite
+          favorites?.[favoriteDados.imdbID]?.isFavorite
             ? imgFavorite.favorited
             : imgFavorite.notFavorited
         }

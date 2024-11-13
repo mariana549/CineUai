@@ -7,11 +7,15 @@ import { Cards } from "../cards";
 import { H2, Main, Section, VerificationMessage } from "./mainStyle";
 
 export function MainCards({ children }: PropsChildren) {
-  const { dados, notFound } = useData();
-  const { favoritesFromStorage, transformFilterdFavoritos, filteredFavoritos } =
-    useFavorites();
+  const { dados, notFound } = useData() || { dados: {}, notFound: "" };
+  const { transformFilterdFavoritos, filteredFavoritos } =
+    useFavorites() || {
+      favoritesFromStorage: [],
+      transformFilterdFavoritos: "",
+      filteredFavoritos: [],
+    };
 
-  return (
+    return (
     <Main>
       <Section>
         <H2>Favorites</H2>
@@ -19,10 +23,8 @@ export function MainCards({ children }: PropsChildren) {
 
         <H4>Favorites on this page</H4>
         <StyledUL>
-          {favoritesFromStorage.length > 0 &&
-          dados &&
-          dados.Response === "True" ? (
-            <Cards dados={filteredFavoritos || []} />
+          {filteredFavoritos && filteredFavoritos.length > 0 ? (
+            <Cards dados={filteredFavoritos} />
           ) : (
             <VerificationMessage>No favorites found.</VerificationMessage>
           )}

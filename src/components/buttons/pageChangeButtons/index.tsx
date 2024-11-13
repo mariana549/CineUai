@@ -9,8 +9,8 @@ import leftArrow from "../../../assets/icons/leftArrow.png";
 import rightArrow from "../../../assets/icons/rigthArrow.png";
 
 export function PageChangeButton() {
-  const { numPageAtual, setNumPageAtual } = usePage();
-  const { numPagesTotal } = useData();
+  const { numPageAtual, setNumPageAtual } = usePage() || { numPageAtual: 1};
+  const { numPagesTotal } = useData() || { numPagesTotal: 1};
 
   return (
     <Box>
