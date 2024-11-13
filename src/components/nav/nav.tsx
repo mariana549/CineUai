@@ -21,7 +21,7 @@ export function Nav() {
       </SpanErrorInput>
 
       <Box>
-        <StyledSelect name="types" onChange={(type) => getTypes(type, setType)}>
+        <StyledSelect name="types" data-testid="types" onChange={(type) => getTypes(type, setType)}>
           <StyledOption value="">all</StyledOption>
           <StyledOption value="movie">movie</StyledOption>
           <StyledOption value="series">series</StyledOption>

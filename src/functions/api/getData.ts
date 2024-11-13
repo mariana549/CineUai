@@ -21,6 +21,6 @@ export async function getData(useStateDados: UseStateDados) {
       console.log(`Não foi possível completar a requisição, ERROR ${error}`);
     }
   } else {
-    useStateDados.setErrorMinLength("Digite no mínimo 3 caracteres");
+    useStateDados.setErrorMinLength("Please enter at least 3 characters.");
   }
 }
