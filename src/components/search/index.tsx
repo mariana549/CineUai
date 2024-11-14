@@ -4,8 +4,8 @@ import { usePage } from "../../hooks/usePage";
 import { SearchInput } from "./searchStyled";
 
 export function InputSearch() {
-  const { setSearchValue, searchValue } = useData();
-  const { setNumPageAtual } = usePage();
+  const { setSearchValue, searchValue } = useData() || { searchValue: "harry" };
+  const { setNumPageAtual } = usePage() || { setNumPageAtual: Number };
 
   const handleSearchWithReset = (
     event: React.ChangeEvent<HTMLInputElement>
