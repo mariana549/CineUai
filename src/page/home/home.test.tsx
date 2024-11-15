@@ -60,6 +60,11 @@ describe("Home", () => {
     expect(screen.getByText("Mocked Footer")).toBeInTheDocument();
   });
 
+  it("deve chamar useFavorites na montagem", () => {
+    render(<Home />);
+    expect(useFavorites).toHaveBeenCalledTimes(1);
+  });
+
   it("deve chamar clearAllFavorites ao clicar no botão 'Delete All Favorites'", () => {
     render(<Home />);
 
