@@ -1,4 +1,4 @@
-import { Favorites } from "../../utils/types/types";
+import { Favorites } from '../../../utils/types/types';
 
 export const clearAllFavorites = (setFavorites: React.Dispatch<Favorites>) => {
   const alertClearAllFavorites = window.confirm(
