@@ -2,7 +2,7 @@ import { getApi_Search } from "../../services/api_search/requstApiSearch";
 import { UseStateDados } from "../../utils/types/interfaces";
 
 export async function getData(useStateDados: UseStateDados) {
-  if (useStateDados.searchValue.length >= 2) {
+  if (useStateDados.searchValue.length >= 3) {
     try {
       const data = await getApi_Search(
         useStateDados.searchValue,
