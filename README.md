@@ -4,7 +4,7 @@ O projeto CineUai é uma aplicação web desenvolvida para mostrar informações
 
 ## Veja o projeto
 
-Clique [aqui](https://cineuai.vercel.app/) e veja o projeto funcionando.
+Clique [aqui](https://cine-uai.vercel.app/) e veja o projeto funcionando.
 
 ## Objetivo 🎯
 
