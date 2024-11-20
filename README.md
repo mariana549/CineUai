@@ -115,12 +115,12 @@ Este projeto usa os seguintes recursos:
 
 ## Imagens 📷
 
-A seguir, você pode ver algumas capturas de tela e um Gif do projeto em funcionamento:
+A seguir, você pode ver algumas capturas de tela do projeto em funcionamento:
 
-[]("../../src/assets/images_projeto/home.png)
+![]("../../src/assets/images_projeto/home.png)
 
-[]("../../src/assets/images_projeto/cards.png)
+![]("../../src/assets/images_projeto/cards.png)
 
-[]("../../src/assets/images_projeto/favoritosLista.png)
+![]("../../src/assets/images_projeto/favoritosLista.png)
 
-[]("../../src/assets/images_projeto/detalhesCards.png)
+![]("../../src/assets/images_projeto/detalhesCards.png)
